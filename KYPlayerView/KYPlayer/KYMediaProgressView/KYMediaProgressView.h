@@ -4,7 +4,7 @@
 //
 //  Created by 康鹏鹏 on 2019/11/5.
 //  Copyright © 2019年 kangpp. All rights reserved.
-//
+//  
 
 #import <UIKit/UIKit.h>
 
@@ -15,12 +15,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface KYMediaProgressView : UIView
 
 /** 缓存进度 */
-@property (nonatomic, assign)float cacheValue;
+@property (nonatomic, assign)CGFloat cacheValue;
 /** 播放进度 */
-@property (nonatomic, assign)float playValue;
+@property (nonatomic, assign)CGFloat playValue;
 
 /** 进度条高度 */
-@property (nonatomic, assign)float progressHeight;
+@property (nonatomic, assign)CGFloat trackHeight;
 
 /** 进度条默认颜色 */
 @property (nonatomic, strong)UIColor *defaultColor;

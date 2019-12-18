@@ -20,7 +20,28 @@
     BOOL _isEnableSlip;
 }
 
+#pragma mark: - 暴露的设置属性方法
+- (void)setPlayValue:(CGFloat)playValue {
+    _playValue = playValue;
+    // 拖拽过程中，仅更新播放值，不更新滑块值
+    if (_isSliding) {
+        return;
+    }
+    [self.playSlider setValue:playValue];
+    [self setNeedsDisplay];
+}
 
+- (void)setCacheValue:(CGFloat)cacheValue {
+    _cacheValue = cacheValue;
+    [self setNeedsDisplay];
+}
+
+/** 是否允许进度条滑动 */
+- (void)setEnableSlip:(BOOL)isEnable {
+    [self.playSlider setEnableSlip:isEnable];
+}
+
+#pragma mark: - 属性
 - (KYSlider *)playSlider {
     if (!_playSlider) {
         _playSlider = [[KYSlider alloc] init];
@@ -35,6 +56,16 @@
 
     }
     return _playSlider;
+}
+
+#pragma mark: - 初始化
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupSubviews];
+        [self setInitData];
+    }
+    return self;
 }
 
 - (void)setupSubviews {
@@ -56,7 +87,7 @@
                                                         toItem:self
                                                      attribute:NSLayoutAttributeRight
                                                     multiplier:1
-                                                      constant:-1.5]];
+                                                      constant:0]];
     // self.playBtn centerY
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.playSlider
                                                      attribute:NSLayoutAttributeCenterY
@@ -67,24 +98,6 @@
                                                       constant:0]];
 }
 
-- (void)setPlayValue:(float)playValue {
-    _playValue = playValue;
-    // 拖拽过程中，仅更新播放值，不更新滑块值
-    if (_isSliding) {
-        return;
-    }
-    [self.playSlider setValue:playValue];
-}
-
-- (void)setCacheValue:(float)cacheValue {
-    _cacheValue = cacheValue;
-    [self setNeedsDisplay];
-}
-
-/** 是否允许进度条滑动 */
-- (void)setEnableSlip:(BOOL)isEnable {
-    [self.playSlider setEnableSlip:isEnable];
-}
 
 - (void)setInitData {
     self.backgroundColor = [UIColor clearColor];
@@ -94,14 +107,15 @@
     self.cacheColor = [UIColor colorWithWhite:1 alpha:0.3];
     // 播放后的颜色
     self.playColor = [UIColor colorWithRed:237/255.0 green:105/255.0 blue:57/255.0 alpha:1];
-    _progressHeight = 4;
+    _trackHeight = 4;
     _cacheValue = 0;
     _playValue = 0;
     _isSliding = NO;
     
     [_playSlider setValue:_playValue];
-    _playSlider.maximumTrackTintColor = self.defaultColor;
-    _playSlider.minimumTrackTintColor = self.playColor;
+    _playSlider.maximumTrackTintColor = [UIColor clearColor];
+    //_playSlider.minimumTrackTintColor = self.playColor;
+    _playSlider.minimumTrackTintColor = [UIColor clearColor];
     _playSlider.thumbTintColor = self.playColor;
     [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
     [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateHighlighted];
@@ -110,31 +124,44 @@
 
 
 
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setupSubviews];
-        [self setInitData];
-    }
-    return self;
-}
-
-
 - (void)drawRect:(CGRect)rect {
-    float pY = (rect.size.height)/2+1;
-    CGPoint startP = CGPointMake(0, pY);
+    // 起点和终点如果不考虑线段圆角半径，终点就是平直四方效果
+    CGFloat marginW = _trackHeight/2;
+    CGFloat pY = (rect.size.height)/2 + 1;
+    CGPoint startP = CGPointMake(marginW, pY);
+    CGPoint endP = CGPointMake(rect.size.width-marginW, pY);
+    CGPoint cacheEndP = CGPointMake(rect.size.width*_cacheValue-marginW, pY);
+    CGPoint playEndP = CGPointMake(rect.size.width*_playValue-marginW, pY);
+    if (cacheEndP.x<marginW) cacheEndP.x = marginW;
+    if (playEndP.x<marginW) playEndP.x = marginW;
+    
+    // 背景线
+    UIBezierPath *bgPath = [[UIBezierPath alloc] init];
+    [bgPath moveToPoint:startP];
+    [bgPath addLineToPoint:endP];
+    [bgPath setLineWidth:_trackHeight];
+    // 终点处理
+    bgPath.lineCapStyle = kCGLineCapRound;
+    [self.defaultColor setStroke];
+    [bgPath stroke];
+    
     // 缓存线
-    CGPoint cacheEndP = CGPointMake(rect.size.width*_cacheValue, pY);
     UIBezierPath *cachePath = [[UIBezierPath alloc] init];
     [cachePath moveToPoint:startP];
     [cachePath addLineToPoint:cacheEndP];
-    [cachePath setLineWidth:_progressHeight];
-    //线条拐角
-     cachePath.lineCapStyle = kCGLineCapRound;
-    //终点处理 kCGLineCapRound kCGLineJoinRound
-    // cachePath.lineJoinStyle = kCGLineCapRound;
+    [cachePath setLineWidth:_trackHeight];
+    cachePath.lineCapStyle = kCGLineCapRound;
     [_cacheColor setStroke];
     [cachePath stroke];
+    
+    // 已播放线
+    UIBezierPath *playPath = [[UIBezierPath alloc] init];
+    [playPath moveToPoint:startP];
+    [playPath addLineToPoint:playEndP];
+    [playPath setLineWidth:_trackHeight];
+    playPath.lineCapStyle = kCGLineCapRound;
+    [_playColor setStroke];
+    [playPath stroke];
 }
 
 /** slider 开始滑动 */
@@ -146,12 +173,15 @@
     _isSliding = YES;
     _playValue = sender.value;
     self.sliderDidChangeBlock(sender.value);
+    [self setNeedsDisplay];
 }
 
 /** slider 结束滑动 */
 - (void)playSliderEnd:(KYSlider *)sender {
+    _playValue = sender.value;
     self.sliderEndChangeBlock(sender.value);
     _isSliding = NO;
+    [self setNeedsDisplay];
 }
 
 

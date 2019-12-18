@@ -8,13 +8,17 @@
 
 #import "KYSlider.h"
 
-#define SLIDER_X_BOUND 30
-#define SLIDER_Y_BOUND 40
+#define SLIDER_X_BOUND  30
+#define SLIDER_Y_BOUND  40
+
+//#define k_TRACK_HEIGHT  4
 
 @implementation KYSlider {
-    float _trackHeight;
+    CGFloat _trackHeight;
     CGRect _lastBounds;
 }
+
+
 
 - (instancetype)init {
     self = [super init];
@@ -26,6 +30,7 @@
 }
 
 
+#pragma mark: - Override Super Function
 // 改变滑条的宽度
 - (CGRect)trackRectForBounds:(CGRect)bounds {
     float width = bounds.size.width;
@@ -76,24 +81,10 @@
             result = YES;
         }
     }
-    
-    //NSLog(@"UISlider(%d).pointInside: (%f, %f) result=%d", self, point.x, point.y, result);
     //否则返回父类的结果
     return result;
 }
 
 
-//- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-//    NSLog(@"%s", __func__);
-//    for (id obj in self.allTargets) {
-//        if ([@"KYMediaProgressView" isEqual:[obj class]]) {
-//            NSLog(@"相等的");
-//        }
-//    }
-//}
-//
-//- (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
-//    NSLog(@"%s", __func__);
-//}
 
 @end
