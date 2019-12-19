@@ -506,5 +506,7 @@
 #pragma mark: - dealloc
 - (void)dealloc {
     [self removeNotify];
+    NSLog(@"%s", __func__);
 }
+
 @end

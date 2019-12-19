@@ -56,12 +56,14 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setTotalTime:(NSString *)totalTimeLength playTime:(NSString *)playTimeLength;
 
 /** 设置播放进度 取值范围 0-1 */
-- (void)setPlayProgress:(float)progress;
+- (void)setPlayProgress:(CGFloat)progress;
 /** 设置缓存进度 取值范围 0-1 */
-- (void)setCacheProgress:(float)progress;
+- (void)setCacheProgress:(CGFloat)progress;
 
-/** 是否允许进度条滑动 */
+/** 是否允许进度条滑动（默认可滑动） */
 - (void)setEnableSlipSlider:(BOOL)isEnable;
+/** 是否显示顶部控制视图（默认可显示） */
+- (void)setEnableShowTopView:(BOOL)isEnable;
 
 /** 设置开始播放UI */
 - (void)setPlayResumeUI;

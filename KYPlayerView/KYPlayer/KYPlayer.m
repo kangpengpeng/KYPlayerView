@@ -73,7 +73,9 @@ static KYPlayer *_sharedPlayer = nil;
 
 - (void)dealloc {
     [self releasePlayer];
+    NSLog(@"%s", __func__);
 }
+
 
 #pragma mark -: 获取播放层 playerLayer
 /** 播放前准备 */
@@ -85,7 +87,7 @@ static KYPlayer *_sharedPlayer = nil;
 }
 - (AVPlayerLayer *)ky_playerLayerWithURL:(NSURL *)url {
     // 初始化时设置状态
-    [self setPlayerStatus:KYPlayerStatusBufferEmpty];
+    [self setPlayerStatus:KYPlayerStatusUnknown];
     [self prepareBeforePlay];
     
 
@@ -176,15 +178,21 @@ static KYPlayer *_sharedPlayer = nil;
     [self ky_playerSeek2Time:seekTime completionHandler:completionHandler];
 }
 
+- (KYPlayerStatus)ky_getPlayerStatus {
+    return _playerStatus;
+}
 
 
 #pragma mark: - 通知和监听
 - (void)removeNotifyAndKVO {
     // 移除通知
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    // 移除KVO
     [self.playerItem removeObserver:self forKeyPath:@"status"];
-    // i移除KVO
     [self.playerItem removeObserver:self forKeyPath:@"loadedTimeRanges"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
+    [self.playerItem removeObserver:self forKeyPath:@"playbackBufferFull"];
     // 移除播放监听
     if (_timeObserverToken) {
         [_player pause];
@@ -352,7 +360,7 @@ static KYPlayer *_sharedPlayer = nil;
     }
 }
 
-/** */
+/** 更新播放时间 */
 - (void)updateCurrentPlayTime:(CGFloat)playTime totalTime:(CGFloat)totalTime {
     self.currentTime = playTime;
     self.totalTime = totalTime;
@@ -360,5 +368,7 @@ static KYPlayer *_sharedPlayer = nil;
         [self.delegate ky_player:self currentPlayingTime:playTime totalTime:totalTime];
     }
 }
+
+
 
 @end

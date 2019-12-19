@@ -19,8 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 /** 播放进度 */
 @property (nonatomic, assign)CGFloat playValue;
 
-/** 进度条高度 */
-@property (nonatomic, assign)CGFloat trackHeight;
 
 /** 进度条默认颜色 */
 @property (nonatomic, strong)UIColor *defaultColor;

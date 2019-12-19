@@ -62,22 +62,5 @@
     return topVC;
 }
 
-/** URL指向地址是否为本地文件 */
-//+ (BOOL)isLocalFileWithURL:(NSURL *)url {
-//    NSString *path = [KJPlayerTool kj_playerGetIntegrityPathWithUrl:url];
-//    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-//        self.videoIsLocalityData = YES;
-//        url = [NSURL fileURLWithPath:path];
-//    }else {
-//        self.videoIsLocalityData = NO;
-//        ///2.判断网络地址是否可用
-//        BOOL isUrl = [KJPlayerTool kj_playerHaveTracksWithURL:url];
-//        if (!isUrl) {
-//            self.errorCode = KJPlayerErrorCodeVideoUrlError;
-//            self.state = KJPlayerStateError;
-//            return nil;
-//        }
-//    }
-//}
 
 @end

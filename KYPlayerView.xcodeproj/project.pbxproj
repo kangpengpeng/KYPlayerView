@@ -19,6 +19,8 @@
 		D33704B6238F51F90085EB11 /* volume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D33704B5238F51F90085EB11 /* volume@2x.png */; };
 		D33704B9238F6BCD0085EB11 /* KYVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = D33704B8238F6BCD0085EB11 /* KYVolumeView.m */; };
 		D3404D7723AA3AC50029ABE1 /* slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3404D7523AA3AC50029ABE1 /* slider@2x.png */; };
+		D3404D7F23AA40F20029ABE1 /* KYMediaHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3404D7E23AA40F20029ABE1 /* KYMediaHUD.m */; };
+		D3404D8223AB73B40029ABE1 /* KYVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3404D8123AB73B40029ABE1 /* KYVideoViewController.m */; };
 		D342BB28238BFD28007A11B7 /* KYFastView.m in Sources */ = {isa = PBXBuildFile; fileRef = D342BB27238BFD28007A11B7 /* KYFastView.m */; };
 		D342BB2B238CCE0E007A11B7 /* KYBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = D342BB2A238CCE0E007A11B7 /* KYBrightnessView.m */; };
 		D342BB2D238D2A6C007A11B7 /* liangdu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D342BB2C238D2A6C007A11B7 /* liangdu@2x.png */; };
@@ -33,38 +35,6 @@
 		D3D073BD2371858800493915 /* KYSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073BC2371858800493915 /* KYSlider.m */; };
 		D3D073C323719E1900493915 /* slider_seleted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073C223719E1900493915 /* slider_seleted@2x.png */; };
 		D3D073C72372B2C700493915 /* KYMediaTools.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073C62372B2C700493915 /* KYMediaTools.m */; };
-		D3D073FB2374470E00493915 /* btn_2large_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073CB2374470D00493915 /* btn_2large_normal.png */; };
-		D3D073FC2374470E00493915 /* btn_2small_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073CC2374470D00493915 /* btn_2small_normal.png */; };
-		D3D073FD2374470E00493915 /* btn_before_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073CD2374470D00493915 /* btn_before_normal.png */; };
-		D3D073FE2374470E00493915 /* btn_next_normal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073CE2374470D00493915 /* btn_next_normal.png */; };
-		D3D073FF2374470E00493915 /* btn_pause_highted.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073CF2374470D00493915 /* btn_pause_highted.png */; };
-		D3D074002374470E00493915 /* btn_pause_nomal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D02374470D00493915 /* btn_pause_nomal.png */; };
-		D3D074012374470E00493915 /* btn_play_highted.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D12374470D00493915 /* btn_play_highted.png */; };
-		D3D074022374470E00493915 /* btn_play_nomal.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D22374470D00493915 /* btn_play_nomal.png */; };
-		D3D074032374470E00493915 /* bar_button_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D42374470E00493915 /* bar_button_1.png */; };
-		D3D074042374470E00493915 /* bar_button_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D52374470E00493915 /* bar_button_2.png */; };
-		D3D074052374470E00493915 /* bar_button_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D62374470E00493915 /* bar_button_3.png */; };
-		D3D074062374470E00493915 /* bar_button_4.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D72374470E00493915 /* bar_button_4.png */; };
-		D3D074072374470E00493915 /* bar_button_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D82374470E00493915 /* bar_button_5@2x.png */; };
-		D3D074082374470E00493915 /* bar_button_5_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073D92374470E00493915 /* bar_button_5_selected@2x.png */; };
-		D3D074092374470E00493915 /* progressSlider_thum_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073DA2374470E00493915 /* progressSlider_thum_mini.png */; };
-		D3D0740A2374470E00493915 /* video_slider_highted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073DB2374470E00493915 /* video_slider_highted@2x.png */; };
-		D3D0740B2374470E00493915 /* video_slider_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073DC2374470E00493915 /* video_slider_normal@2x.png */; };
-		D3D0740C2374470E00493915 /* progress_brightness_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073DE2374470E00493915 /* progress_brightness_logo.png */; };
-		D3D0740D2374470E00493915 /* progress_volume_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073DF2374470E00493915 /* progress_volume_logo.png */; };
-		D3D0740E2374470E00493915 /* btn_back_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073E12374470E00493915 /* btn_back_normal@2x.png */; };
-		D3D0740F2374470E00493915 /* player_back_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = D3D073E22374470E00493915 /* player_back_btn.png */; };
-		D3D074102374470E00493915 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = D3D073E52374470E00493915 /* LICENSE */; };
-		D3D074112374470E00493915 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073E72374470E00493915 /* MBProgressHUD.m */; };
-		D3D074122374470E00493915 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = D3D073E82374470E00493915 /* README.mdown */; };
-		D3D074132374470E00493915 /* ZQButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073EB2374470E00493915 /* ZQButton.m */; };
-		D3D074142374470E00493915 /* ZQPlayerProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073ED2374470E00493915 /* ZQPlayerProgress.m */; };
-		D3D074152374470E00493915 /* ZQProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073EF2374470E00493915 /* ZQProgressView.m */; };
-		D3D074162374470E00493915 /* ZQTouchControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073F12374470E00493915 /* ZQTouchControlView.m */; };
-		D3D074172374470E00493915 /* ZQVideoComplexControlBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073F32374470E00493915 /* ZQVideoComplexControlBar.m */; };
-		D3D074182374470E00493915 /* ZQVideoComplexTopBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073F52374470E00493915 /* ZQVideoComplexTopBar.m */; };
-		D3D074192374470E00493915 /* UIUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073F72374470E00493915 /* UIUtils.m */; };
-		D3D0741A2374470E00493915 /* ZQAVPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D073F92374470E00493915 /* ZQAVPlayer.m */; };
 		D3DE00902385795400341296 /* KYPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DE008F2385795400341296 /* KYPlayer.m */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +57,10 @@
 		D33704B7238F6BCD0085EB11 /* KYVolumeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYVolumeView.h; sourceTree = "<group>"; };
 		D33704B8238F6BCD0085EB11 /* KYVolumeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYVolumeView.m; sourceTree = "<group>"; };
 		D3404D7523AA3AC50029ABE1 /* slider@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider@2x.png"; sourceTree = "<group>"; };
+		D3404D7D23AA40F20029ABE1 /* KYMediaHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KYMediaHUD.h; sourceTree = "<group>"; };
+		D3404D7E23AA40F20029ABE1 /* KYMediaHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KYMediaHUD.m; sourceTree = "<group>"; };
+		D3404D8023AB73B40029ABE1 /* KYVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYVideoViewController.h; sourceTree = "<group>"; };
+		D3404D8123AB73B40029ABE1 /* KYVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYVideoViewController.m; sourceTree = "<group>"; };
 		D342BB26238BFD28007A11B7 /* KYFastView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYFastView.h; sourceTree = "<group>"; };
 		D342BB27238BFD28007A11B7 /* KYFastView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYFastView.m; sourceTree = "<group>"; };
 		D342BB29238CCE0E007A11B7 /* KYBrightnessView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYBrightnessView.h; sourceTree = "<group>"; };
@@ -107,48 +81,6 @@
 		D3D073C223719E1900493915 /* slider_seleted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "slider_seleted@2x.png"; sourceTree = "<group>"; };
 		D3D073C52372B2C700493915 /* KYMediaTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYMediaTools.h; sourceTree = "<group>"; };
 		D3D073C62372B2C700493915 /* KYMediaTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYMediaTools.m; sourceTree = "<group>"; };
-		D3D073CB2374470D00493915 /* btn_2large_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_2large_normal.png; sourceTree = "<group>"; };
-		D3D073CC2374470D00493915 /* btn_2small_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_2small_normal.png; sourceTree = "<group>"; };
-		D3D073CD2374470D00493915 /* btn_before_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_before_normal.png; sourceTree = "<group>"; };
-		D3D073CE2374470D00493915 /* btn_next_normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_next_normal.png; sourceTree = "<group>"; };
-		D3D073CF2374470D00493915 /* btn_pause_highted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pause_highted.png; sourceTree = "<group>"; };
-		D3D073D02374470D00493915 /* btn_pause_nomal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_pause_nomal.png; sourceTree = "<group>"; };
-		D3D073D12374470D00493915 /* btn_play_highted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_play_highted.png; sourceTree = "<group>"; };
-		D3D073D22374470D00493915 /* btn_play_nomal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = btn_play_nomal.png; sourceTree = "<group>"; };
-		D3D073D42374470E00493915 /* bar_button_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_button_1.png; sourceTree = "<group>"; };
-		D3D073D52374470E00493915 /* bar_button_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_button_2.png; sourceTree = "<group>"; };
-		D3D073D62374470E00493915 /* bar_button_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_button_3.png; sourceTree = "<group>"; };
-		D3D073D72374470E00493915 /* bar_button_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bar_button_4.png; sourceTree = "<group>"; };
-		D3D073D82374470E00493915 /* bar_button_5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar_button_5@2x.png"; sourceTree = "<group>"; };
-		D3D073D92374470E00493915 /* bar_button_5_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar_button_5_selected@2x.png"; sourceTree = "<group>"; };
-		D3D073DA2374470E00493915 /* progressSlider_thum_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progressSlider_thum_mini.png; sourceTree = "<group>"; };
-		D3D073DB2374470E00493915 /* video_slider_highted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_slider_highted@2x.png"; sourceTree = "<group>"; };
-		D3D073DC2374470E00493915 /* video_slider_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "video_slider_normal@2x.png"; sourceTree = "<group>"; };
-		D3D073DE2374470E00493915 /* progress_brightness_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_brightness_logo.png; sourceTree = "<group>"; };
-		D3D073DF2374470E00493915 /* progress_volume_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = progress_volume_logo.png; sourceTree = "<group>"; };
-		D3D073E12374470E00493915 /* btn_back_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_back_normal@2x.png"; sourceTree = "<group>"; };
-		D3D073E22374470E00493915 /* player_back_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_back_btn.png; sourceTree = "<group>"; };
-		D3D073E52374470E00493915 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		D3D073E62374470E00493915 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		D3D073E72374470E00493915 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		D3D073E82374470E00493915 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.mdown; sourceTree = "<group>"; };
-		D3D073EA2374470E00493915 /* ZQButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQButton.h; sourceTree = "<group>"; };
-		D3D073EB2374470E00493915 /* ZQButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQButton.m; sourceTree = "<group>"; };
-		D3D073EC2374470E00493915 /* ZQPlayerProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQPlayerProgress.h; sourceTree = "<group>"; };
-		D3D073ED2374470E00493915 /* ZQPlayerProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQPlayerProgress.m; sourceTree = "<group>"; };
-		D3D073EE2374470E00493915 /* ZQProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQProgressView.h; sourceTree = "<group>"; };
-		D3D073EF2374470E00493915 /* ZQProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQProgressView.m; sourceTree = "<group>"; };
-		D3D073F02374470E00493915 /* ZQTouchControlView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQTouchControlView.h; sourceTree = "<group>"; };
-		D3D073F12374470E00493915 /* ZQTouchControlView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQTouchControlView.m; sourceTree = "<group>"; };
-		D3D073F22374470E00493915 /* ZQVideoComplexControlBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQVideoComplexControlBar.h; sourceTree = "<group>"; };
-		D3D073F32374470E00493915 /* ZQVideoComplexControlBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVideoComplexControlBar.m; sourceTree = "<group>"; };
-		D3D073F42374470E00493915 /* ZQVideoComplexTopBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQVideoComplexTopBar.h; sourceTree = "<group>"; };
-		D3D073F52374470E00493915 /* ZQVideoComplexTopBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVideoComplexTopBar.m; sourceTree = "<group>"; };
-		D3D073F62374470E00493915 /* UIUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIUtils.h; sourceTree = "<group>"; };
-		D3D073F72374470E00493915 /* UIUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIUtils.m; sourceTree = "<group>"; };
-		D3D073F82374470E00493915 /* ZQAVPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAVPlayer.h; sourceTree = "<group>"; };
-		D3D073F92374470E00493915 /* ZQAVPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQAVPlayer.m; sourceTree = "<group>"; };
-		D3D073FA2374470E00493915 /* ZQAvPlayerHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAvPlayerHeader.h; sourceTree = "<group>"; };
 		D3DE008E2385795400341296 /* KYPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KYPlayer.h; sourceTree = "<group>"; };
 		D3DE008F2385795400341296 /* KYPlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KYPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -187,6 +119,8 @@
 				D300137423608315004F811D /* AppDelegate.m */,
 				D300137623608315004F811D /* ViewController.h */,
 				D300137723608315004F811D /* ViewController.m */,
+				D3404D8023AB73B40029ABE1 /* KYVideoViewController.h */,
+				D3404D8123AB73B40029ABE1 /* KYVideoViewController.m */,
 				D3D073B923715BEF00493915 /* KYPlayer */,
 				D300138C23608CF7004F811D /* test.mp4 */,
 				D300137923608315004F811D /* Main.storyboard */,
@@ -194,9 +128,17 @@
 				D300137E2360831E004F811D /* LaunchScreen.storyboard */,
 				D30013812360831E004F811D /* Info.plist */,
 				D30013822360831E004F811D /* main.m */,
-				D3D073C82374470D00493915 /* ZQAvPlayer */,
 			);
 			path = KYPlayerView;
+			sourceTree = "<group>";
+		};
+		D3404D7C23AA3CCC0029ABE1 /* KYTools */ = {
+			isa = PBXGroup;
+			children = (
+				D3D073C52372B2C700493915 /* KYMediaTools.h */,
+				D3D073C62372B2C700493915 /* KYMediaTools.m */,
+			);
+			path = KYTools;
 			sourceTree = "<group>";
 		};
 		D34B45192399098B000B1910 /* KYVolumeView */ = {
@@ -260,6 +202,7 @@
 		D3D073B923715BEF00493915 /* KYPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				D3404D7C23AA3CCC0029ABE1 /* KYTools */,
 				D34B451F23990B7D000B1910 /* KYMediaProgressView */,
 				D34B451B23990A43000B1910 /* KYBrightnessView */,
 				D34B45192399098B000B1910 /* KYVolumeView */,
@@ -267,12 +210,12 @@
 				D3DE008F2385795400341296 /* KYPlayer.m */,
 				D30013892360848B004F811D /* KYPlayerView.h */,
 				D300138A2360848B004F811D /* KYPlayerView.m */,
-				D3D073C52372B2C700493915 /* KYMediaTools.h */,
-				D3D073C62372B2C700493915 /* KYMediaTools.m */,
 				D3D073A72370244500493915 /* KYMediaControlView.h */,
 				D3D073A82370244500493915 /* KYMediaControlView.m */,
 				D342BB26238BFD28007A11B7 /* KYFastView.h */,
 				D342BB27238BFD28007A11B7 /* KYFastView.m */,
+				D3404D7D23AA40F20029ABE1 /* KYMediaHUD.h */,
+				D3404D7E23AA40F20029ABE1 /* KYMediaHUD.m */,
 				D3D073BA23715BF900493915 /* Resource */,
 			);
 			path = KYPlayer;
@@ -289,119 +232,6 @@
 				D3D073B423705BF200493915 /* full.png */,
 			);
 			path = Resource;
-			sourceTree = "<group>";
-		};
-		D3D073C82374470D00493915 /* ZQAvPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073C92374470D00493915 /* resource */,
-				D3D073E32374470E00493915 /* thirdLib */,
-				D3D073E92374470E00493915 /* toolView */,
-				D3D073F62374470E00493915 /* UIUtils.h */,
-				D3D073F72374470E00493915 /* UIUtils.m */,
-				D3D073F82374470E00493915 /* ZQAVPlayer.h */,
-				D3D073F92374470E00493915 /* ZQAVPlayer.m */,
-				D3D073FA2374470E00493915 /* ZQAvPlayerHeader.h */,
-			);
-			path = ZQAvPlayer;
-			sourceTree = "<group>";
-		};
-		D3D073C92374470D00493915 /* resource */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073CA2374470D00493915 /* ControlBarImgs */,
-				D3D073DD2374470E00493915 /* MediaProgressImgs */,
-				D3D073E02374470E00493915 /* TopBarImgs */,
-			);
-			path = resource;
-			sourceTree = "<group>";
-		};
-		D3D073CA2374470D00493915 /* ControlBarImgs */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073CB2374470D00493915 /* btn_2large_normal.png */,
-				D3D073CC2374470D00493915 /* btn_2small_normal.png */,
-				D3D073CD2374470D00493915 /* btn_before_normal.png */,
-				D3D073CE2374470D00493915 /* btn_next_normal.png */,
-				D3D073CF2374470D00493915 /* btn_pause_highted.png */,
-				D3D073D02374470D00493915 /* btn_pause_nomal.png */,
-				D3D073D12374470D00493915 /* btn_play_highted.png */,
-				D3D073D22374470D00493915 /* btn_play_nomal.png */,
-				D3D073D32374470D00493915 /* OptionViewImgs */,
-				D3D073DA2374470E00493915 /* progressSlider_thum_mini.png */,
-				D3D073DB2374470E00493915 /* video_slider_highted@2x.png */,
-				D3D073DC2374470E00493915 /* video_slider_normal@2x.png */,
-			);
-			path = ControlBarImgs;
-			sourceTree = "<group>";
-		};
-		D3D073D32374470D00493915 /* OptionViewImgs */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073D42374470E00493915 /* bar_button_1.png */,
-				D3D073D52374470E00493915 /* bar_button_2.png */,
-				D3D073D62374470E00493915 /* bar_button_3.png */,
-				D3D073D72374470E00493915 /* bar_button_4.png */,
-				D3D073D82374470E00493915 /* bar_button_5@2x.png */,
-				D3D073D92374470E00493915 /* bar_button_5_selected@2x.png */,
-			);
-			path = OptionViewImgs;
-			sourceTree = "<group>";
-		};
-		D3D073DD2374470E00493915 /* MediaProgressImgs */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073DE2374470E00493915 /* progress_brightness_logo.png */,
-				D3D073DF2374470E00493915 /* progress_volume_logo.png */,
-			);
-			path = MediaProgressImgs;
-			sourceTree = "<group>";
-		};
-		D3D073E02374470E00493915 /* TopBarImgs */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073E12374470E00493915 /* btn_back_normal@2x.png */,
-				D3D073E22374470E00493915 /* player_back_btn.png */,
-			);
-			path = TopBarImgs;
-			sourceTree = "<group>";
-		};
-		D3D073E32374470E00493915 /* thirdLib */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073E42374470E00493915 /* MBProgressHUD */,
-			);
-			path = thirdLib;
-			sourceTree = "<group>";
-		};
-		D3D073E42374470E00493915 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073E52374470E00493915 /* LICENSE */,
-				D3D073E62374470E00493915 /* MBProgressHUD.h */,
-				D3D073E72374470E00493915 /* MBProgressHUD.m */,
-				D3D073E82374470E00493915 /* README.mdown */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
-		D3D073E92374470E00493915 /* toolView */ = {
-			isa = PBXGroup;
-			children = (
-				D3D073EA2374470E00493915 /* ZQButton.h */,
-				D3D073EB2374470E00493915 /* ZQButton.m */,
-				D3D073EC2374470E00493915 /* ZQPlayerProgress.h */,
-				D3D073ED2374470E00493915 /* ZQPlayerProgress.m */,
-				D3D073EE2374470E00493915 /* ZQProgressView.h */,
-				D3D073EF2374470E00493915 /* ZQProgressView.m */,
-				D3D073F02374470E00493915 /* ZQTouchControlView.h */,
-				D3D073F12374470E00493915 /* ZQTouchControlView.m */,
-				D3D073F22374470E00493915 /* ZQVideoComplexControlBar.h */,
-				D3D073F32374470E00493915 /* ZQVideoComplexControlBar.m */,
-				D3D073F42374470E00493915 /* ZQVideoComplexTopBar.h */,
-				D3D073F52374470E00493915 /* ZQVideoComplexTopBar.m */,
-			);
-			path = toolView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -462,43 +292,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D342BB2D238D2A6C007A11B7 /* liangdu@2x.png in Resources */,
-				D3D073FE2374470E00493915 /* btn_next_normal.png in Resources */,
 				D30013802360831E004F811D /* LaunchScreen.storyboard in Resources */,
-				D3D0740B2374470E00493915 /* video_slider_normal@2x.png in Resources */,
 				D300137D2360831E004F811D /* Assets.xcassets in Resources */,
 				D33704B4238F51F30085EB11 /* unvolume@2x.png in Resources */,
-				D3D0740F2374470E00493915 /* player_back_btn.png in Resources */,
-				D3D0740C2374470E00493915 /* progress_brightness_logo.png in Resources */,
-				D3D073FF2374470E00493915 /* btn_pause_highted.png in Resources */,
-				D3D074022374470E00493915 /* btn_play_nomal.png in Resources */,
-				D3D074102374470E00493915 /* LICENSE in Resources */,
 				D33704B6238F51F90085EB11 /* volume@2x.png in Resources */,
-				D3D074122374470E00493915 /* README.mdown in Resources */,
-				D3D074032374470E00493915 /* bar_button_1.png in Resources */,
 				D3D073B12370534700493915 /* play_2@2x.png in Resources */,
-				D3D074012374470E00493915 /* btn_play_highted.png in Resources */,
 				D3D073AF2370534000493915 /* pause_2@2x.png in Resources */,
-				D3D0740A2374470E00493915 /* video_slider_highted@2x.png in Resources */,
 				D3D073B523705BF200493915 /* full.png in Resources */,
-				D3D074092374470E00493915 /* progressSlider_thum_mini.png in Resources */,
 				D3D073AB23703F0900493915 /* pause@2x.png in Resources */,
-				D3D0740E2374470E00493915 /* btn_back_normal@2x.png in Resources */,
 				D3D073AD23703F1200493915 /* play@2x.png in Resources */,
-				D3D073FB2374470E00493915 /* btn_2large_normal.png in Resources */,
 				D300137B23608315004F811D /* Main.storyboard in Resources */,
-				D3D074062374470E00493915 /* bar_button_4.png in Resources */,
-				D3D074082374470E00493915 /* bar_button_5_selected@2x.png in Resources */,
-				D3D074042374470E00493915 /* bar_button_2.png in Resources */,
-				D3D0740D2374470E00493915 /* progress_volume_logo.png in Resources */,
-				D3D074072374470E00493915 /* bar_button_5@2x.png in Resources */,
 				D3D073C323719E1900493915 /* slider_seleted@2x.png in Resources */,
-				D3D073FD2374470E00493915 /* btn_before_normal.png in Resources */,
 				D3404D7723AA3AC50029ABE1 /* slider@2x.png in Resources */,
-				D3D074002374470E00493915 /* btn_pause_nomal.png in Resources */,
 				D300138D23608CF7004F811D /* test.mp4 in Resources */,
-				D3D074052374470E00493915 /* bar_button_3.png in Resources */,
 				D3D073B323705BEF00493915 /* unfull.png in Resources */,
-				D3D073FC2374470E00493915 /* btn_2small_normal.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,26 +316,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3D074132374470E00493915 /* ZQButton.m in Sources */,
-				D3D0741A2374470E00493915 /* ZQAVPlayer.m in Sources */,
+				D3404D8223AB73B40029ABE1 /* KYVideoViewController.m in Sources */,
 				D300137823608315004F811D /* ViewController.m in Sources */,
 				D300138B2360848B004F811D /* KYPlayerView.m in Sources */,
 				D342BB28238BFD28007A11B7 /* KYFastView.m in Sources */,
 				D3DE00902385795400341296 /* KYPlayer.m in Sources */,
-				D3D074192374470E00493915 /* UIUtils.m in Sources */,
-				D3D074142374470E00493915 /* ZQPlayerProgress.m in Sources */,
-				D3D074182374470E00493915 /* ZQVideoComplexTopBar.m in Sources */,
 				D342BB2B238CCE0E007A11B7 /* KYBrightnessView.m in Sources */,
 				D33704B9238F6BCD0085EB11 /* KYVolumeView.m in Sources */,
 				D3D073BD2371858800493915 /* KYSlider.m in Sources */,
 				D3D073A92370244500493915 /* KYMediaControlView.m in Sources */,
-				D3D074152374470E00493915 /* ZQProgressView.m in Sources */,
-				D3D074112374470E00493915 /* MBProgressHUD.m in Sources */,
 				D30013832360831E004F811D /* main.m in Sources */,
-				D3D074172374470E00493915 /* ZQVideoComplexControlBar.m in Sources */,
 				D300137523608315004F811D /* AppDelegate.m in Sources */,
 				D3D073C72372B2C700493915 /* KYMediaTools.m in Sources */,
-				D3D074162374470E00493915 /* ZQTouchControlView.m in Sources */,
+				D3404D7F23AA40F20029ABE1 /* KYMediaHUD.m in Sources */,
 				D3D073B8237159D400493915 /* KYMediaProgressView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

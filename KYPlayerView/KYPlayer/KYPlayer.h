@@ -24,6 +24,7 @@ typedef enum : NSUInteger {
     KYPlayerStatusStop,           // 停止状态，不可恢复
 } KYPlayerStatus;
 
+
 @class KYPlayer;
 @protocol KYPlayerDelegate <NSObject>
 
@@ -71,6 +72,9 @@ typedef enum : NSUInteger {
 - (void)ky_pause;
 /** 停止播放 */
 - (void)ky_stop;
+
+/** 获取播放器状态 */
+- (KYPlayerStatus)ky_getPlayerStatus;
 
 @end
 

@@ -12,6 +12,8 @@
 @interface KYMediaProgressView()
 /** 进度条滑块 */
 @property (nonatomic, strong)KYSlider *playSlider;
+/** 进度条高度 */
+@property (nonatomic, assign)CGFloat trackHeight;
 @end
 
 @implementation KYMediaProgressView {
@@ -28,7 +30,8 @@
         return;
     }
     [self.playSlider setValue:playValue];
-    [self setNeedsDisplay];
+    // 当使用贝塞尔曲线描绘已播放线段时，需要打开此方法
+    // [self setNeedsDisplay];
 }
 
 - (void)setCacheValue:(CGFloat)cacheValue {
@@ -40,6 +43,11 @@
 - (void)setEnableSlip:(BOOL)isEnable {
     [self.playSlider setEnableSlip:isEnable];
 }
+
+//- (void)setTrackHeight:(CGFloat)trackHeight {
+//    _trackHeight = trackHeight;
+//    _playSlider.transform = CGAffineTransformMakeScale(1.0, 10);
+//}
 
 #pragma mark: - 属性
 - (KYSlider *)playSlider {
@@ -114,12 +122,11 @@
     
     [_playSlider setValue:_playValue];
     _playSlider.maximumTrackTintColor = [UIColor clearColor];
-    //_playSlider.minimumTrackTintColor = self.playColor;
-    _playSlider.minimumTrackTintColor = [UIColor clearColor];
+    _playSlider.minimumTrackTintColor = self.playColor;
+    //_playSlider.minimumTrackTintColor = [UIColor greenColor];
     _playSlider.thumbTintColor = self.playColor;
     [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
     [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateHighlighted];
-
 }
 
 
@@ -154,6 +161,7 @@
     [_cacheColor setStroke];
     [cachePath stroke];
     
+    /*
     // 已播放线
     UIBezierPath *playPath = [[UIBezierPath alloc] init];
     [playPath moveToPoint:startP];
@@ -162,6 +170,7 @@
     playPath.lineCapStyle = kCGLineCapRound;
     [_playColor setStroke];
     [playPath stroke];
+     */
 }
 
 /** slider 开始滑动 */
@@ -173,7 +182,8 @@
     _isSliding = YES;
     _playValue = sender.value;
     self.sliderDidChangeBlock(sender.value);
-    [self setNeedsDisplay];
+    // 当使用贝塞尔曲线描绘已播放线段时，需要打开此方法
+    // [self setNeedsDisplay];
 }
 
 /** slider 结束滑动 */
@@ -181,7 +191,8 @@
     _playValue = sender.value;
     self.sliderEndChangeBlock(sender.value);
     _isSliding = NO;
-    [self setNeedsDisplay];
+    // 当使用贝塞尔曲线描绘已播放线段时，需要打开此方法
+    // [self setNeedsDisplay];
 }
 
 
@@ -189,7 +200,10 @@
 
 
 
-
+#pragma mark: - delloc
+- (void)dealloc {
+    NSLog(@"%s", __func__);
+}
 
 
 

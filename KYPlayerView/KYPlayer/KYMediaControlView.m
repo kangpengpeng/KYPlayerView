@@ -11,9 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "KYMediaTools.h"
 
-/** 底部容器视图高度 */
-//#define k_BOTTOM_CONTENT_HEIGHT    50;
-//float _bottomContentHeight;
+
+#define k_ANIMATION_DURATION         0.3
 
 /** 隐藏底部视图的延迟时间 */
 #define k_HIDDEN_DELAY     5
@@ -34,6 +33,8 @@
 
 /** 底部控制的容器视图 */
 @property (nonatomic, strong)UIView *bottomContentView;
+/** 头部控制的容器视图 */
+@property (nonatomic, strong)UIView *topContentView;
 @end
 
 @implementation KYMediaControlView {
@@ -41,43 +42,56 @@
     BOOL _isPlay;
     /** 当前是否显示控制视图 */
     BOOL _isShowControlView;
-    /** 底部容器视图高度 */
-    float _bottomContentHeight;
     /** 当前是否正在执行动画 */
     BOOL _isAnimating;
     
+    /** 底部容器视图高度 */
+    float _bottomContentHeight;
+    /** 头部容器视图高度 */
+    float _topContentHeight;
     /** 底部容器视图的底部约束 */
     NSLayoutConstraint *_bottomContentConstraintBottom;
-    /** 底部容器视图的高度约束 */
-    NSLayoutConstraint *_bottomContentConstraintHeight;
+    /** 头部容器视图的top约束 */
+    NSLayoutConstraint *_topContentConstraintTop;
     
     /** 隐藏底部控制视图的动画block */
     dispatch_block_t _hideAnimationBlock;
 }
 
 #pragma mark: - 提供给外部的数据设置
+/** 设置视频时长 */
 - (void)setTotalTime:(NSString *)timeText {
     self.totalTimeLb.text = [NSString stringWithFormat:@"%@", timeText];
 }
+/** 设置已播放视频时长 */
 - (void)setPlayTime:(NSString *)timeText {
     self.playTimeLb.text = timeText;
 }
+/** 设置视频时长和已播放视频时长 */
 - (void)setTotalTime:(NSString *)totalTimeLength playTime:(NSString *)playTimeLength {
     [self setTotalTime:totalTimeLength];
     [self setPlayTime:playTimeLength];
 }
-
-- (void)setPlayProgress:(float)progress {
-    [self.progressView setPlayValue:progress];
+/** 设置播放进度 取值范围 0-1 */
+- (void)setPlayProgress:(CGFloat)progress {
+    CGFloat tmpValue = (isnan(progress) || progress < 0) ? 0 : progress;
+    [self.progressView setPlayValue:tmpValue];
 }
-- (void)setCacheProgress:(float)progress {
-    [self.progressView setCacheValue:progress];
+/** 设置缓存进度 取值范围 0-1 */
+- (void)setCacheProgress:(CGFloat)progress {
+    CGFloat tmpValue = (isnan(progress) || progress < 0) ? 0 : progress;
+    [self.progressView setCacheValue:tmpValue];
 }
 
 
-/** 是否允许进度条滑动 */
+/** 是否允许进度条滑动（默认可滑动） */
 - (void)setEnableSlipSlider:(BOOL)isEnable {
     [self.progressView setEnableSlip:isEnable];
+}
+
+/** 是否显示顶部控制视图（默认不显示） */
+- (void)setEnableShowTopView:(BOOL)isEnable {
+    [self.topContentView setHidden:!isEnable];
 }
 
 /** 设置开始播放UI */
@@ -102,6 +116,7 @@
     [self.largePlayBtn setHidden:NO];
     _isPlay = NO;
 }
+
 
 #pragma mark: - 初始化
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -165,10 +180,8 @@
 }
 - (void)doubleTapAction:(UITapGestureRecognizer *)ges {
     if (_isPlay) {
-//        [self pausePlayMedia];
         [self setPlayPauseUI];
     } else {
-//        [self resumePlayMedia];
         [self setPlayResumeUI];
     }
     if (self.contorlDelegate && [self.contorlDelegate respondsToSelector:@selector(mediaControl:isSetPlay:)]) {
@@ -274,35 +287,13 @@
     if (self.contorlDelegate && [self.contorlDelegate respondsToSelector:@selector(mediaControl:isSetPlay:)]) {
         [sender setSelected:!sender.isSelected];
         if (sender.isSelected) {
-//            [self resumePlayMedia];
             [self setPlayResumeUI];
         } else {
-//            [self pausePlayMedia];
             [self setPlayPauseUI];
         }
         [self.contorlDelegate mediaControl:self isSetPlay:sender.isSelected];
     }
 }
-
-
-#pragma mark: - 播放控制
-/** 播放媒体 */
-//- (void)resumePlayMedia {
-//    [self.playBtn setSelected:YES];
-//    [self.largePlayBtn setSelected:YES];
-//    [self.largePlayBtn setHidden:YES];
-//    [self hideControlViewDelay:10];
-//    _isPlay = YES;
-//}
-/** 暂停媒体 */
-//- (void)pausePlayMedia {
-//    [self.playBtn setSelected:NO];
-//    [self.largePlayBtn setSelected:NO];
-//    [self.largePlayBtn setHidden:NO];
-//    _isPlay = NO;
-//}
-
-
 
 
 #pragma mark: - 视图控制
@@ -313,12 +304,17 @@
     }
     _isAnimating = YES;
     _bottomContentConstraintBottom.constant = 0;
+    _topContentConstraintTop.constant = 0;
     [self.bottomContentView setNeedsUpdateConstraints];
-    [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self layoutIfNeeded];
+    [self.topContentView setNeedsUpdateConstraints];
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:k_ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        [strongSelf layoutIfNeeded];
     } completion:^(BOOL finished) {
-        self->_isShowControlView = YES;
-        self->_isAnimating = NO;
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        strongSelf->_isShowControlView = YES;
+        strongSelf->_isAnimating = NO;
     }];
 }
 /** 隐藏控制视图 */
@@ -327,20 +323,20 @@
     __weak typeof(self) weakSelf = self;
     _hideAnimationBlock = dispatch_block_create(0, ^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
-        if (strongSelf->_isAnimating) {
-            return;
-        }
+        if (strongSelf == nil) return;
+        if (strongSelf->_isAnimating) return;
         strongSelf->_isAnimating = YES;
-        strongSelf->_bottomContentConstraintBottom.constant = self->_bottomContentHeight;
+        strongSelf->_bottomContentConstraintBottom.constant = strongSelf->_bottomContentHeight;
+        strongSelf->_topContentConstraintTop.constant = -strongSelf->_topContentHeight;
         [strongSelf.bottomContentView setNeedsUpdateConstraints];
-        [UIView animateWithDuration:0.3 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        [strongSelf.topContentView setNeedsUpdateConstraints];
+        [UIView animateWithDuration:k_ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [strongSelf layoutIfNeeded];
         } completion:^(BOOL finished) {
             strongSelf->_isShowControlView = NO;
             strongSelf->_isAnimating = NO;
         }];
     });
-    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay*NSEC_PER_SEC), dispatch_get_main_queue(), _hideAnimationBlock);
 }
 
@@ -348,6 +344,7 @@
 - (void)addSubviews {
     [self addSubview:self.largePlayBtn];
     [self addSubview:self.bottomContentView];
+    [self addSubview:self.topContentView];
     [self.bottomContentView addSubview:self.playBtn];
     [self.bottomContentView addSubview:self.fullBtn];
     [self.bottomContentView addSubview:self.totalTimeLb];
@@ -356,8 +353,6 @@
 }
 - (void)setupSubviews {
     
-
-    
     self.largePlayBtn.translatesAutoresizingMaskIntoConstraints = NO;
     self.bottomContentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.playBtn.translatesAutoresizingMaskIntoConstraints = NO;
@@ -365,6 +360,7 @@
     self.totalTimeLb.translatesAutoresizingMaskIntoConstraints = NO;
     self.playTimeLb.translatesAutoresizingMaskIntoConstraints = NO;
     self.progressView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.topContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
     int largeBtnW = 60;
     int btnW = 25;
@@ -397,17 +393,50 @@
                                                                    constant:0];
     [self addConstraint:_bottomContentConstraintBottom];
     // self.bottomContentView 高
-    _bottomContentConstraintHeight = [NSLayoutConstraint constraintWithItem:self.bottomContentView
-                                                                  attribute:NSLayoutAttributeHeight
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:nil
-                                                                  attribute:NSLayoutAttributeNotAnAttribute
-                                                                 multiplier:0
-                                                                   constant:_bottomContentHeight];
-    [self addConstraint:_bottomContentConstraintHeight];
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.bottomContentView
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:0
+                                                      constant:_bottomContentHeight]];
+    
+    // ********************************** self.topContentView **********************************
+    // self.topContentView 左边距
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.topContentView
+                                                     attribute:NSLayoutAttributeLeft
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeLeft
+                                                    multiplier:1
+                                                      constant:0]];
+    // self.topContentView 右边距
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.topContentView
+                                                     attribute:NSLayoutAttributeRight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:self
+                                                     attribute:NSLayoutAttributeRight
+                                                    multiplier:1
+                                                      constant:0]];
+    // self.topContentView 上边距
+    _topContentConstraintTop = [NSLayoutConstraint constraintWithItem:self.topContentView
+                                                            attribute:NSLayoutAttributeTop
+                                                            relatedBy:NSLayoutRelationEqual
+                                                               toItem:self
+                                                            attribute:NSLayoutAttributeTop
+                                                           multiplier:1
+                                                             constant:0];
+    [self addConstraint:_topContentConstraintTop];
+    // self.topContentView 高
+    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.topContentView
+                                                     attribute:NSLayoutAttributeHeight
+                                                     relatedBy:NSLayoutRelationEqual
+                                                        toItem:nil
+                                                     attribute:NSLayoutAttributeNotAnAttribute
+                                                    multiplier:0
+                                                      constant:_topContentHeight]];
     
     // ********************************** self.largePlayBtn **********************************
-    
     // self.largePlayBtn centerX
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.largePlayBtn
                                                      attribute:NSLayoutAttributeCenterX
@@ -621,6 +650,7 @@
 - (void)setInitData {
     /** 底部容器视图高度 */
     _bottomContentHeight = 50;
+    _topContentHeight = 50;
     _isPlay = NO;
     _isShowControlView = YES;
     _isAnimating = NO;
@@ -634,6 +664,13 @@
         _bottomContentView.backgroundColor = [UIColor clearColor];
     }
     return _bottomContentView;
+}
+- (UIView *)topContentView {
+    if (!_topContentView) {
+        _topContentView = [[UIView alloc] init];
+        _topContentView.backgroundColor = [UIColor redColor];
+    }
+    return _topContentView;
 }
 
 - (UIButton *)largePlayBtn {
@@ -701,5 +738,10 @@
     return _progressView;
 }
 
+
+#pragma mark: - delloc
+- (void)dealloc {
+    NSLog(@"%s", __func__);
+}
 
 @end

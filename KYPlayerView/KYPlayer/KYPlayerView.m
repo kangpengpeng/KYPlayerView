@@ -13,8 +13,8 @@
 #import "KYPlayer.h"
 #import "KYFastView.h"
 #import "KYBrightnessView.h"
-//#import <MediaPlayer/MPVolumeView.h>
 #import "KYVolumeView.h"
+
 
 /** hidden 延迟时间 */
 #define k_HIDDEN_DELAY       2
@@ -39,6 +39,8 @@
 @property (nonatomic, strong)KYBrightnessView *brightSliderView;
 /** 自定义显示音量视图 */
 @property (nonatomic, strong)KYVolumeView *volumeSliderView;
+/** 加载提示的小菊花 */
+@property (nonatomic, strong)UIActivityIndicatorView *indicatorView;
 @end
 
 @implementation KYPlayerView {
@@ -64,7 +66,7 @@
 }
 
 - (void)setPlayerWithURL:(NSURL *)url {
-
+    [self showLoading];
     _videoURL = url;
     self.playerLayer = [self.myPlayer ky_playerLayerWithURL:url];
     self.myPlayer.delegate = self;
@@ -87,6 +89,10 @@
 - (void)setEnableControlFast:(BOOL)isEnable {
     _isEnableControlFast = isEnable;
     [self.contolView setEnableSlipSlider:isEnable];
+}
+/** 是否允许显示顶部视图 */
+- (void)setEnableShowTopView:(BOOL)isEnable {
+    [self.contolView setEnableShowTopView:isEnable];
 }
 
 /** 播放 */
@@ -158,7 +164,18 @@
     }
     return _volumeSliderView;
 }
-
+- (UIActivityIndicatorView *)indicatorView {
+    if (!_indicatorView) {
+        _indicatorView = [[UIActivityIndicatorView alloc] init];
+        _indicatorView.layer.cornerRadius = 6;
+        _indicatorView.clipsToBounds = YES;
+        _indicatorView.backgroundColor = [UIColor blackColor];
+        //设置小菊花颜色
+        _indicatorView.color = [UIColor whiteColor];
+        _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    }
+    return _indicatorView;
+}
 
 #pragma mark -: 初始化子视图
 - (void)setupSubviews {
@@ -173,9 +190,21 @@
     [self.volumeSliderView setHidden:YES];
     [self.contolView addSubview:self.volumeSliderView];
     
+    // 加载提示小菊花
+    self.indicatorView.frame = CGRectMake(50, 50, 50, 50);
+    self.indicatorView.center = self.contolView.center;
+    [self.contolView addSubview:_indicatorView];
+
 }
 
-
+- (void)showLoading {
+    [self.indicatorView setHidden:NO];
+    [self.indicatorView startAnimating];
+}
+- (void)hideLoading {
+    [self.indicatorView setHidden:YES];
+    [self.indicatorView stopAnimating];
+}
 
 #pragma mark -: 初始化数据
 - (void)initData {
@@ -214,38 +243,41 @@
     switch (status) {
         case KYPlayerStatusUnknown:
             NSLog(@"*** KYPlayerStatusUnknown");
-            
+            [self hideLoading];
             break;
             
         case KYPlayerStatusReadyToPlay:
             NSLog(@"*** KYPlayerStatusReadyToPlay");
-
+            [self hideLoading];
             break;
             
         case KYPlayerStatusFailed:
             NSLog(@"*** KYPlayerStatusFailed");
+            [self hideLoading];
             break;
         case KYPlayerStatusPlaying:
             NSLog(@"*** KYPlayerStatusPlaying");
-
+            [self hideLoading];
             break;
             
         case KYPlayerStatusBufferEmpty:
             NSLog(@"*** KYPlayerStatusBufferEmpty");
-
+            [self showLoading];
             break;
             
         case KYPlayerStatusKeepUp:
             NSLog(@"*** KYPlayerStatusKeepUp");
-
+            [self hideLoading];
             break;
             
         case KYPlayerStatusPause:
             NSLog(@"*** KYPlayerStatusPause");
+            
             break;
             
         case KYPlayerStatusStop:
             NSLog(@"*** KYPlayerStatusStop");
+            
             break;
             
         default:
@@ -255,12 +287,12 @@
 }
 
 - (void)ky_player:(KYPlayer *)player currentPlayingTime:(CGFloat)playTime totalTime:(CGFloat)totalTime {
-    _totalTime = totalTime;
-    _currentTime = playTime;
-    [self.contolView setTotalTime:[KYMediaTools getFormatTimeString:totalTime]];
-    [self.contolView setPlayTime:[KYMediaTools getFormatTimeString:playTime]];
-    [self.contolView setPlayProgress:playTime/totalTime];
-//    NSLog(@"当前播放时间 %f, 总时长 %f", _currentTime, _totalTime);
+    _totalTime = totalTime < 0 ? 0 : totalTime;
+    _currentTime = playTime < 0 ? 0 : playTime;
+    CGFloat progress = _totalTime == 0 ? 0 : _currentTime/_totalTime;
+    [self.contolView setTotalTime:[KYMediaTools getFormatTimeString:_totalTime]];
+    [self.contolView setPlayTime:[KYMediaTools getFormatTimeString:_currentTime]];
+    [self.contolView setPlayProgress:progress];
 }
 
 - (void)ky_player:(KYPlayer *)player didCacheProgress:(CGFloat)progress {
@@ -293,9 +325,11 @@
 #pragma mark: - KYMediaContorlViewDelegate
 - (void)mediaControl:(KYMediaControlView *)mediaControl isSetPlay:(BOOL)isPlay {
     if (isPlay) {
-        [self.myPlayer ky_play];
+//        [self.myPlayer ky_play];
+        [self play];
     } else {
-        [self.myPlayer ky_pause];
+//        [self.myPlayer ky_pause];
+        [self pause];
     }
 }
 
@@ -448,5 +482,9 @@
 }
 
 
+#pragma mark: - delloc
+- (void)dealloc {
+    NSLog(@"%s", __func__);
+}
 
 @end

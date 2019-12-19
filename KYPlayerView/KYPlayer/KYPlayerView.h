@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setEnableControlVolume:(BOOL)isEnable;
 /** 是否允许快进 */
 - (void)setEnableControlFast:(BOOL)isEnable;
+/** 是否允许显示顶部视图 */
+- (void)setEnableShowTopView:(BOOL)isEnable;
 
 /** 播放 */
 - (void)play;
