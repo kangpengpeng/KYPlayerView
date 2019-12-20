@@ -40,6 +40,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 获取顶层控制器 */
 + (UIViewController *)getRootViewController;
+
+/**
+ 获取视图所在导航控制器
+ @param view       导航控制器内的某个视图
+ */
++ (UINavigationController *)getNavigationControllerFromView:(UIView *)view;
+
+/**
+ 获取视图所在控制器
+ @param view       控制器内的某个视图
+ */
++ (UIViewController *)getViewControllerFromView:(UIView *)view;
+
+
 @end
 
 NS_ASSUME_NONNULL_END

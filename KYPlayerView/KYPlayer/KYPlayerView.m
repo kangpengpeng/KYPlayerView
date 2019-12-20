@@ -7,7 +7,6 @@
 //
 
 #import "KYPlayerView.h"
-#import <AVFoundation/AVFoundation.h>
 #import "KYMediaControlView.h"
 #import "KYMediaTools.h"
 #import "KYPlayer.h"
@@ -22,7 +21,6 @@
 @interface KYPlayerView() <KYPlayerDelegate, KYMediaControlViewProtocol, KYVolumeViewDelegate>
 /** 播放地址 */
 @property (nonatomic, strong)NSURL *videoURL;
-
 
 /** 显示视频的播放层 （AVPlayer本身并不显示视频）*/
 @property (nonatomic, strong)AVPlayerLayer  *playerLayer;
@@ -50,6 +48,7 @@
     BOOL _isEnableControlVolume;
     BOOL _isEnableControlBrightness;
     BOOL _isEnableControlFast;
+    AVLayerVideoGravity _videoGravity;
 }
 
 
@@ -71,12 +70,31 @@
     self.playerLayer = [self.myPlayer ky_playerLayerWithURL:url];
     self.myPlayer.delegate = self;
     self.playerLayer.frame = self.bounds;
+    self.playerLayer.videoGravity = _videoGravity;
     [self.layer addSublayer:self.playerLayer];
     // 将播放按钮前置
     [self bringSubviewToFront:self.contolView];
 }
+- (void)setMediaTitle:(NSString *)text {
+    [self.contolView setTitle:text];
+}
 
-
+/** 设置视频填充方式 */
+- (void)setVideoGravity:(AVLayerVideoGravity)videoGravity {
+    /*
+     AVLayerVideoGravityResizeAspect        // 默认值，原始画面全显示
+     AVLayerVideoGravityResizeAspectFill    // 等比拉伸填满
+     AVLayerVideoGravityResize              // 拉伸填满，会变形
+     */
+    _videoGravity = videoGravity;
+    if (_playerLayer) {
+        _playerLayer.videoGravity = videoGravity;
+    }
+}
+/** 是否显示中间大的播放/暂停按钮（默认显示） */
+- (void)setEnableShowCenterPlayButton:(BOOL)isEnable {
+    [self.contolView setEnableShowCenterPlayButton:isEnable];
+}
 /** 是否开启亮度调节 */
 - (void)setEnableControlBrightness:(BOOL)isEnable {
     _isEnableControlBrightness = isEnable;
@@ -112,72 +130,47 @@
 }
 
 
-#pragma mark -: 懒加载属性
-- (KYMediaControlView *)contolView {
-    if (!_contolView) {
-        _contolView = [[KYMediaControlView alloc] init];
-        _contolView.contorlDelegate = self;
-    }
-    return _contolView;
+
+
+#pragma mark -: HUD 提示
+- (void)showLoading {
+    [self.indicatorView setHidden:NO];
+    [self.indicatorView startAnimating];
+}
+- (void)hideLoading {
+    [self.indicatorView setHidden:YES];
+    [self.indicatorView stopAnimating];
 }
 
-- (KYPlayer *)myPlayer {
-    if (!_myPlayer) {
-        _myPlayer = [KYPlayer sharedInstance];
+#pragma mark -: 初始化数据
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        NSAssert(NO, @"请使用 initWithFrame: 初始化播放器");
     }
-    return _myPlayer;
+    return self;
 }
 
-- (KYFastView *)fastView {
-    if (!_fastView) {
-        _fastView = [[KYFastView alloc] initWithFrame:CGRectMake(0, 0, 150, 80)];
-        _fastView.center = self.contolView.center;
-        [_fastView setFastTime:@"+00:00:00"];
-        [_fastView setFastTime:@"00:00:00" totalTime:@"00:00:00"];
-        [_fastView setHidden:YES];
-    }
-    return _fastView;
-}
 
-- (KYBrightnessView *)brightSliderView {
-    if (!_brightSliderView) {
-        CGFloat bvW = 40;
-        CGFloat bvH = self.frame.size.height / 2;
-        CGFloat bvX = 30;
-        CGFloat bvY = (self.frame.size.height-bvH)/2;
-        _brightSliderView = [[KYBrightnessView alloc] initWithFrame:CGRectMake(bvX, bvY, bvW, bvH)];
-        [_brightSliderView setIconImage:[UIImage imageNamed:@"liangdu"]];
-        [_brightSliderView setHidden:YES];
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initData];
+        self.userInteractionEnabled = YES;
+        self.backgroundColor = [UIColor blackColor];
+        _orgFrame = frame;
+        [self setupSubviews];
     }
-    return _brightSliderView;
+    return self;
 }
-
-- (KYVolumeView *)volumeSliderView {
-    if (!_volumeSliderView) {
-        CGFloat bvW = 40;
-        CGFloat bvH = self.frame.size.height / 2;
-        CGFloat bvX = self.frame.size.width - bvW - 30;
-        CGFloat bvY = (self.frame.size.height-bvH)/2;
-        _volumeSliderView = [[KYVolumeView alloc] initWithFrame:CGRectMake(bvX, bvY, bvW, bvH)];
-        [_volumeSliderView setHidden:YES];
-        _volumeSliderView.delegate = self;
-    }
-    return _volumeSliderView;
+- (void)initData {
+    _totalTime = 0;
+    _currentTime = 0;
+    _isEnableControlFast = YES;
+    _isEnableControlVolume = YES;
+    _isEnableControlBrightness = YES;
+    _videoGravity = AVLayerVideoGravityResizeAspect;
 }
-- (UIActivityIndicatorView *)indicatorView {
-    if (!_indicatorView) {
-        _indicatorView = [[UIActivityIndicatorView alloc] init];
-        _indicatorView.layer.cornerRadius = 6;
-        _indicatorView.clipsToBounds = YES;
-        _indicatorView.backgroundColor = [UIColor blackColor];
-        //设置小菊花颜色
-        _indicatorView.color = [UIColor whiteColor];
-        _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
-    }
-    return _indicatorView;
-}
-
-#pragma mark -: 初始化子视图
 - (void)setupSubviews {
     // 设置控制播放视图
     self.contolView.frame = self.bounds;
@@ -194,50 +187,8 @@
     self.indicatorView.frame = CGRectMake(50, 50, 50, 50);
     self.indicatorView.center = self.contolView.center;
     [self.contolView addSubview:_indicatorView];
-
+    
 }
-
-- (void)showLoading {
-    [self.indicatorView setHidden:NO];
-    [self.indicatorView startAnimating];
-}
-- (void)hideLoading {
-    [self.indicatorView setHidden:YES];
-    [self.indicatorView stopAnimating];
-}
-
-#pragma mark -: 初始化数据
-- (void)initData {
-    _totalTime = 0;
-    _currentTime = 0;
-    _isEnableControlFast = YES;
-    _isEnableControlVolume = YES;
-    _isEnableControlBrightness = YES;
-}
-
-- (instancetype)init {
-    self = [super init];
-    if (self) {
-        NSAssert(NO, @"请使用 initWithFrame: 初始化播放器");
-    }
-    return self;
-}
-
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self initData];
-        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:1];
-        _orgFrame = frame;
-        [self setupSubviews];
-    }
-    return self;
-}
-
-
-
-
 #pragma mark: - KYPlayerDelegate
 - (void)ky_player:(KYPlayer *)player updateStatus:(KYPlayerStatus)status {
     switch (status) {
@@ -325,10 +276,8 @@
 #pragma mark: - KYMediaContorlViewDelegate
 - (void)mediaControl:(KYMediaControlView *)mediaControl isSetPlay:(BOOL)isPlay {
     if (isPlay) {
-//        [self.myPlayer ky_play];
         [self play];
     } else {
-//        [self.myPlayer ky_pause];
         [self pause];
     }
 }
@@ -338,10 +287,14 @@
         //NSLog(@"全屏");
         [KYPlayerView switchNewOrientation:UIInterfaceOrientationLandscapeLeft];
         [self setScreenFull];
+        UINavigationController *nvc = [KYMediaTools getNavigationControllerFromView:self];
+        [nvc.navigationBar setHidden:YES];
     } else {
         //NSLog(@"非全屏");
         [KYPlayerView switchNewOrientation:UIInterfaceOrientationPortrait];
         [self setUnScreenFull];
+        UINavigationController *nvc = [KYMediaTools getNavigationControllerFromView:self];
+        [nvc.navigationBar setHidden:NO];
     }
 }
 
@@ -481,6 +434,71 @@
     [self.contolView setNeedsLayout];
 }
 
+
+#pragma mark -: 懒加载属性
+- (KYMediaControlView *)contolView {
+    if (!_contolView) {
+        _contolView = [[KYMediaControlView alloc] init];
+        _contolView.contorlDelegate = self;
+    }
+    return _contolView;
+}
+
+- (KYPlayer *)myPlayer {
+    if (!_myPlayer) {
+        _myPlayer = [KYPlayer sharedInstance];
+    }
+    return _myPlayer;
+}
+
+- (KYFastView *)fastView {
+    if (!_fastView) {
+        _fastView = [[KYFastView alloc] initWithFrame:CGRectMake(0, 0, 150, 80)];
+        _fastView.center = self.contolView.center;
+        [_fastView setFastTime:@"+00:00:00"];
+        [_fastView setFastTime:@"00:00:00" totalTime:@"00:00:00"];
+        [_fastView setHidden:YES];
+    }
+    return _fastView;
+}
+
+- (KYBrightnessView *)brightSliderView {
+    if (!_brightSliderView) {
+        CGFloat bvW = 40;
+        CGFloat bvH = self.frame.size.height / 2;
+        CGFloat bvX = 30;
+        CGFloat bvY = (self.frame.size.height-bvH)/2;
+        _brightSliderView = [[KYBrightnessView alloc] initWithFrame:CGRectMake(bvX, bvY, bvW, bvH)];
+        [_brightSliderView setIconImage:[UIImage imageNamed:@"liangdu"]];
+        [_brightSliderView setHidden:YES];
+    }
+    return _brightSliderView;
+}
+
+- (KYVolumeView *)volumeSliderView {
+    if (!_volumeSliderView) {
+        CGFloat bvW = 40;
+        CGFloat bvH = self.frame.size.height / 2;
+        CGFloat bvX = self.frame.size.width - bvW - 30;
+        CGFloat bvY = (self.frame.size.height-bvH)/2;
+        _volumeSliderView = [[KYVolumeView alloc] initWithFrame:CGRectMake(bvX, bvY, bvW, bvH)];
+        [_volumeSliderView setHidden:YES];
+        _volumeSliderView.delegate = self;
+    }
+    return _volumeSliderView;
+}
+- (UIActivityIndicatorView *)indicatorView {
+    if (!_indicatorView) {
+        _indicatorView = [[UIActivityIndicatorView alloc] init];
+        _indicatorView.layer.cornerRadius = 6;
+        _indicatorView.clipsToBounds = YES;
+        _indicatorView.backgroundColor = [UIColor blackColor];
+        //设置小菊花颜色
+        _indicatorView.color = [UIColor whiteColor];
+        _indicatorView.activityIndicatorViewStyle = UIActivityIndicatorViewStyleWhiteLarge;
+    }
+    return _indicatorView;
+}
 
 #pragma mark: - delloc
 - (void)dealloc {

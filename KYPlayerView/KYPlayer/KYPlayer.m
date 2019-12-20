@@ -111,8 +111,6 @@ static KYPlayer *_sharedPlayer = nil;
         self.player = [[AVPlayer alloc] initWithPlayerItem:_playerItem];
     }
     self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:_player];
-    // AVLayerVideoGravityResizeAspectFill AVLayerVideoGravityResizeAspect
-//     _playerLayer.videoGravity = AVLayerVideoGravityResizeAspect;
     
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session setCategory:AVAudioSessionCategoryPlayAndRecord
@@ -240,7 +238,6 @@ static KYPlayer *_sharedPlayer = nil;
 }
 /** 视频播放结束通知方法 */
 - (void)mediaDidPlayEnd:(NSNotification *)notify {
-//    NSLog(@"播放结束");
     if (self.delegate && [self.delegate respondsToSelector:@selector(ky_player:didPlayEnd:)]) {
         [self.delegate ky_player:self didPlayEnd:YES];
     }

@@ -33,15 +33,18 @@
     
     _playerView = [[KYPlayerView alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, 300)];
     [self.view addSubview:_playerView];
-    
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"test.mp4" ofType:nil];
-    //    NSURL *mediaUrl = [NSURL fileURLWithPath:path];
-    //    [_playerView setURL:mediaUrl];
-    //    [_playerView play];
-    
     NSString *path = @"https://media.w3.org/2010/05/sintel/trailer.mp4";
     [_playerView setURLWithString:path];
-//    [_playerView play];
+    [_playerView setMediaTitle:@"望庐山普利 -- 飞流直下三千尺，疑似银河落九天！"];
+    [_playerView setVideoGravity:AVLayerVideoGravityResizeAspectFill];
+    [_playerView setEnableShowCenterPlayButton:NO];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    NSLog(@"%s", __func__);
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"test.mp4" ofType:nil];
+//    NSURL *mediaUrl = [NSURL fileURLWithPath:path];
+//    [_playerView setURL:mediaUrl];
 }
 
 @end

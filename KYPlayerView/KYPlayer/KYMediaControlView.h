@@ -65,6 +65,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 是否显示顶部控制视图（默认可显示） */
 - (void)setEnableShowTopView:(BOOL)isEnable;
 
+/** 是否显示中间大的播放/暂停按钮（默认显示） */
+- (void)setEnableShowCenterPlayButton:(BOOL)isEnable;
+
+/** 设置媒体标题
+    （设置标题后，不显示顶部视图的设置将失效）
+ */
+- (void)setTitle:(NSString *)text;
+
 /** 设置开始播放UI */
 - (void)setPlayResumeUI;
 /** 设置播放暂停UI */

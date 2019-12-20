@@ -62,5 +62,26 @@
     return topVC;
 }
 
+/** 获取视图所在导航控制器 */
++ (UINavigationController *)getNavigationControllerFromView:(UIView *)view {
+    for (UIView *next = [view superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UINavigationController class]]) {
+            return (UINavigationController *)nextResponder;
+        }
+    }
+    return nil;
+}
+
+/** 获取视图所在控制器 */
++ (UIViewController *)getViewControllerFromView:(UIView *)view {
+    for (UIView *next = [view superview]; next; next = next.superview) {
+        UIResponder *nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UIViewController class]]) {
+            return (UIViewController *)nextResponder;
+        }
+    }
+    return nil;
+}
 
 @end

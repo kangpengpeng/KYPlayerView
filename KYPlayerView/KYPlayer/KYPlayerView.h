@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,14 @@ NS_ASSUME_NONNULL_BEGIN
 /** 设置播放 URLString */
 - (void)setURLWithString:(NSString *)urlString;
 
+/** 设置媒体标题文字 */
+- (void)setMediaTitle:(NSString *)text;
+
+/** 设置视频填充方式 */
+- (void)setVideoGravity:(AVLayerVideoGravity)videoGravity;
+
+/** 是否显示中间大的播放/暂停按钮（默认显示） */
+- (void)setEnableShowCenterPlayButton:(BOOL)isEnable;
 /** 是否开启亮度调节 */
 - (void)setEnableControlBrightness:(BOOL)isEnable;
 /** 是否开启音量调节 */

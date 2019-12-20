@@ -46,13 +46,13 @@
 #pragma mark: - 属性
 - (UIImage *)volumeImage {
     if (!_volumeImage) {
-        _volumeImage = [UIImage imageNamed:@"volume"];
+        _volumeImage = [UIImage imageNamed:@"volume_2"];
     }
     return _volumeImage;
 }
 - (UIImage *)muteVolumeImage {
     if (!_muteVolumeImage) {
-        _muteVolumeImage = [UIImage imageNamed:@"unvolume"];
+        _muteVolumeImage = [UIImage imageNamed:@"unvolume_2"];
     }
     return _muteVolumeImage;
 }
@@ -94,7 +94,6 @@
 #pragma mark: - 外部暴露方法
 // 设置音量增量
 - (void)setIncreaseVolumeValue:(CGFloat)value {
-    NSLog(@"增量设置 %f, %f", [self getVolumeValue], value);
     [self setVolumeValue:[self getVolumeValue] + value];
 }
 // 设置音量值
@@ -231,7 +230,6 @@
         [self setHidden:YES delay:k_HIDDEN_DELAY];
         float volume = [[[notification userInfo] objectForKey:@"AVSystemController_AudioVolumeNotificationParameter"] floatValue];
         self.currVolume = volume;
-        NSLog(@"volumeChanged ************* %f", volume);
         [self setNeedsDisplay];
         if (volume != 0 && self.iconIV.image != self.volumeImage) self.iconIV.image = self.volumeImage;
         if (volume ==0 && self.iconIV.image != self.muteVolumeImage) self.iconIV.image = self.muteVolumeImage;

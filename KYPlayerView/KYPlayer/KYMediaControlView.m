@@ -15,11 +15,14 @@
 #define k_ANIMATION_DURATION         0.3
 
 /** 隐藏底部视图的延迟时间 */
-#define k_HIDDEN_DELAY     5
+#define k_HIDDEN_DELAY     3
 
 @interface KYMediaControlView()
 /** 中间打的播放按钮 */
 @property (nonatomic, strong)UIButton *largePlayBtn;
+
+/** 底部控制的容器视图 */
+@property (nonatomic, strong)UIView *bottomContentView;
 /** 播放、暂停按钮 */
 @property (nonatomic, strong)UIButton *playBtn;
 /** 全屏按钮 */
@@ -31,10 +34,12 @@
 /** 进度条 */
 @property (nonatomic, strong)KYMediaProgressView *progressView;
 
-/** 底部控制的容器视图 */
-@property (nonatomic, strong)UIView *bottomContentView;
+
 /** 头部控制的容器视图 */
 @property (nonatomic, strong)UIView *topContentView;
+/** 视频标题 */
+@property (nonatomic, strong)UILabel *titleLb;
+
 @end
 
 @implementation KYMediaControlView {
@@ -44,6 +49,8 @@
     BOOL _isShowControlView;
     /** 当前是否正在执行动画 */
     BOOL _isAnimating;
+    /** 是否显示中间的播放按钮 */
+    BOOL _isShowLargePlayBtn;
     
     /** 底部容器视图高度 */
     float _bottomContentHeight;
@@ -82,8 +89,6 @@
     CGFloat tmpValue = (isnan(progress) || progress < 0) ? 0 : progress;
     [self.progressView setCacheValue:tmpValue];
 }
-
-
 /** 是否允许进度条滑动（默认可滑动） */
 - (void)setEnableSlipSlider:(BOOL)isEnable {
     [self.progressView setEnableSlip:isEnable];
@@ -93,12 +98,23 @@
 - (void)setEnableShowTopView:(BOOL)isEnable {
     [self.topContentView setHidden:!isEnable];
 }
+/** 是否显示中间大的播放/暂停按钮（默认显示） */
+- (void)setEnableShowCenterPlayButton:(BOOL)isEnable {
+    _isShowLargePlayBtn = isEnable;
+    [self.largePlayBtn setHidden:!isEnable];
+}
+
+/** 设置媒体标题 */
+- (void)setTitle:(NSString *)text {
+    self.titleLb.text = text;
+    [self setEnableShowTopView:YES];
+}
 
 /** 设置开始播放UI */
 - (void)setPlayResumeUI {
     [self.playBtn setSelected:YES];
     [self.largePlayBtn setSelected:YES];
-    [self.largePlayBtn setHidden:YES];
+    //[self.largePlayBtn setHidden:YES];
     [self hideControlViewDelay:k_HIDDEN_DELAY];
     _isPlay = YES;
 }
@@ -106,7 +122,9 @@
 - (void)setPlayPauseUI {
     [self.playBtn setSelected:NO];
     [self.largePlayBtn setSelected:NO];
-    [self.largePlayBtn setHidden:NO];
+    if (_isShowLargePlayBtn) {
+        [self.largePlayBtn setHidden:NO];
+    }
     _isPlay = NO;
 }
 /** 设置是否播放结束 */
@@ -123,6 +141,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        // 不设置此属性，底部和头部控制视图移出界面仍可见
         self.layer.masksToBounds = YES;
         [self setInitData];
         [self addSubviews];
@@ -148,7 +167,16 @@
     }
     return self;
 }
-
+#pragma mark: - 初始化默认数据
+- (void)setInitData {
+    /** 底部容器视图高度 */
+    _bottomContentHeight = 50;
+    _topContentHeight = 45;
+    _isPlay = NO;
+    _isShowControlView = YES;
+    _isAnimating = NO;
+    _isShowLargePlayBtn = YES;
+}
 
 #pragma mark: - 手势
 /** 给视图添加手势 */
@@ -311,6 +339,9 @@
     [UIView animateWithDuration:k_ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf layoutIfNeeded];
+        if (strongSelf->_isShowLargePlayBtn) {
+            [strongSelf.largePlayBtn setHidden:NO];
+        }
     } completion:^(BOOL finished) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         strongSelf->_isShowControlView = YES;
@@ -332,6 +363,9 @@
         [strongSelf.topContentView setNeedsUpdateConstraints];
         [UIView animateWithDuration:k_ANIMATION_DURATION delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
             [strongSelf layoutIfNeeded];
+            if (strongSelf->_isShowLargePlayBtn) {
+                [strongSelf.largePlayBtn setHidden:YES];
+            }
         } completion:^(BOOL finished) {
             strongSelf->_isShowControlView = NO;
             strongSelf->_isAnimating = NO;
@@ -350,19 +384,23 @@
     [self.bottomContentView addSubview:self.totalTimeLb];
     [self.bottomContentView addSubview:self.playTimeLb];
     [self.bottomContentView addSubview:self.progressView];
+    [self.topContentView addSubview:self.titleLb];
 }
 - (void)setupSubviews {
     
     self.largePlayBtn.translatesAutoresizingMaskIntoConstraints = NO;
+    
     self.bottomContentView.translatesAutoresizingMaskIntoConstraints = NO;
     self.playBtn.translatesAutoresizingMaskIntoConstraints = NO;
     self.fullBtn.translatesAutoresizingMaskIntoConstraints = NO;
     self.totalTimeLb.translatesAutoresizingMaskIntoConstraints = NO;
     self.playTimeLb.translatesAutoresizingMaskIntoConstraints = NO;
     self.progressView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.topContentView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    int largeBtnW = 60;
+    self.topContentView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLb.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    int largeBtnW = 45;
     int btnW = 25;
     int labelW = 65;
     
@@ -643,32 +681,56 @@
                                                                        attribute:NSLayoutAttributeNotAnAttribute
                                                                       multiplier:0
                                                                         constant:10]];
-    
+    // ********************************** self.titleLb **********************************
+    // self.titleLb centerX
+    [self.topContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLb
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.topContentView
+                                                                    attribute:NSLayoutAttributeCenterX
+                                                                   multiplier:1
+                                                                     constant:0]];
+    // self.titleLb centerY
+    [self.topContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLb
+                                                                    attribute:NSLayoutAttributeCenterY
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.topContentView
+                                                                    attribute:NSLayoutAttributeCenterY
+                                                                   multiplier:1
+                                                                     constant:0]];
+    // self.titleLb left
+    [self.topContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLb
+                                                                    attribute:NSLayoutAttributeLeft
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.topContentView
+                                                                    attribute:NSLayoutAttributeLeft
+                                                                   multiplier:1
+                                                                     constant:50]];
+    // self.titleLb right
+    [self.topContentView addConstraint:[NSLayoutConstraint constraintWithItem:self.titleLb
+                                                                    attribute:NSLayoutAttributeRight
+                                                                    relatedBy:NSLayoutRelationEqual
+                                                                       toItem:self.topContentView
+                                                                    attribute:NSLayoutAttributeRight
+                                                                   multiplier:1
+                                                                     constant:-50]];
 }
 
-#pragma mark: - 初始化默认数据
-- (void)setInitData {
-    /** 底部容器视图高度 */
-    _bottomContentHeight = 50;
-    _topContentHeight = 50;
-    _isPlay = NO;
-    _isShowControlView = YES;
-    _isAnimating = NO;
-}
+
 
 
 #pragma mark: - 懒加载属性
 - (UIView *)bottomContentView {
     if (!_bottomContentView) {
         _bottomContentView = [[UIView alloc] init];
-        _bottomContentView.backgroundColor = [UIColor clearColor];
+        _bottomContentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     }
     return _bottomContentView;
 }
 - (UIView *)topContentView {
     if (!_topContentView) {
         _topContentView = [[UIView alloc] init];
-        _topContentView.backgroundColor = [UIColor redColor];
+        _topContentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
     }
     return _topContentView;
 }
@@ -676,8 +738,8 @@
 - (UIButton *)largePlayBtn {
     if (!_largePlayBtn) {
         _largePlayBtn = [[UIButton alloc] init];
-        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
+        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"play_large_2"] forState:UIControlStateNormal];
+        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"pause_large_2"] forState:UIControlStateSelected];
         [_largePlayBtn addTarget:self action:@selector(clickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _largePlayBtn;
@@ -700,8 +762,8 @@
 - (UIButton *)fullBtn {
     if (!_fullBtn) {
         _fullBtn = [[UIButton alloc] init];
-        [_fullBtn setBackgroundImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"full" ofType:@"png"]] forState:UIControlStateNormal];
-        [_fullBtn setBackgroundImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"unfull" ofType:@"png"]] forState:UIControlStateSelected];
+        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"full_2"] forState:UIControlStateNormal];
+        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"unfull_2"] forState:UIControlStateSelected];
         [_fullBtn addTarget:self action:@selector(fullScreen:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullBtn;
@@ -738,6 +800,15 @@
     return _progressView;
 }
 
+- (UILabel *)titleLb {
+    if (!_titleLb) {
+        _titleLb = [[UILabel alloc] init];
+        _titleLb.textAlignment = NSTextAlignmentCenter;
+        _titleLb.textColor = [UIColor whiteColor];
+        _titleLb.numberOfLines = 2;
+    }
+    return _titleLb;
+}
 
 #pragma mark: - delloc
 - (void)dealloc {
