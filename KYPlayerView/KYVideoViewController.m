@@ -40,11 +40,11 @@
     [_playerView setEnableShowCenterPlayButton:NO];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    NSLog(@"%s", __func__);
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"test.mp4" ofType:nil];
-//    NSURL *mediaUrl = [NSURL fileURLWithPath:path];
-//    [_playerView setURL:mediaUrl];
-}
+//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+//    NSLog(@"%s", __func__);
+////    NSString *path = [[NSBundle mainBundle] pathForResource:@"test.mp4" ofType:nil];
+////    NSURL *mediaUrl = [NSURL fileURLWithPath:path];
+////    [_playerView setURL:mediaUrl];
+//}
 
 @end

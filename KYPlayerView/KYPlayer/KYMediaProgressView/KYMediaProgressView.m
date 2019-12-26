@@ -48,6 +48,11 @@
 //    _trackHeight = trackHeight;
 //    _playSlider.transform = CGAffineTransformMakeScale(1.0, 10);
 //}
+//- (void)setThumbTintColor:(UIColor *)color andImage:(UIImage *)image {
+//    self.playColor = color;
+//    self.playSlider.thumbTintColor = self.playColor;
+//    self.
+//}
 
 #pragma mark: - 属性
 - (KYSlider *)playSlider {
@@ -74,6 +79,27 @@
         [self setInitData];
     }
     return self;
+}
+
+- (void)setInitData {
+    self.backgroundColor = [UIColor clearColor];
+    // 默认白色
+    self.defaultColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    // 缓存颜色，默认灰色
+    self.cacheColor = [UIColor colorWithWhite:1 alpha:0.3];
+    // 播放后的颜色
+    self.playColor = [UIColor colorWithRed:237/255.0 green:105/255.0 blue:57/255.0 alpha:1];
+    _trackHeight = 4;
+    _cacheValue = 0;
+    _playValue = 0;
+    _isSliding = NO;
+    
+    [_playSlider setValue:_playValue];
+    _playSlider.maximumTrackTintColor = [UIColor clearColor];
+    _playSlider.minimumTrackTintColor = self.playColor;
+    _playSlider.thumbTintColor = self.playColor;
+    [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
+    [self.playSlider setThumbImage:[UIImage imageNamed:@"slider_seleted"] forState:UIControlStateHighlighted];
 }
 
 - (void)setupSubviews {
@@ -107,27 +133,7 @@
 }
 
 
-- (void)setInitData {
-    self.backgroundColor = [UIColor clearColor];
-    // 默认白色
-    self.defaultColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    // 缓存颜色，默认灰色
-    self.cacheColor = [UIColor colorWithWhite:1 alpha:0.3];
-    // 播放后的颜色
-    self.playColor = [UIColor colorWithRed:237/255.0 green:105/255.0 blue:57/255.0 alpha:1];
-    _trackHeight = 4;
-    _cacheValue = 0;
-    _playValue = 0;
-    _isSliding = NO;
-    
-    [_playSlider setValue:_playValue];
-    _playSlider.maximumTrackTintColor = [UIColor clearColor];
-    _playSlider.minimumTrackTintColor = self.playColor;
-    //_playSlider.minimumTrackTintColor = [UIColor greenColor];
-    _playSlider.thumbTintColor = self.playColor;
-    [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateNormal];
-    [self.playSlider setThumbImage:[UIImage imageNamed:@"slider"] forState:UIControlStateHighlighted];
-}
+
 
 
 
@@ -175,13 +181,23 @@
 
 /** slider 开始滑动 */
 - (void)playSliderStart:(KYSlider *)sender {
-    self.sliderWillChangeBlock(sender.value);
+    if (self.sliderWillChangeBlock) {
+        self.sliderWillChangeBlock(sender.value);
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mediaProgressView:sliderWillChange:)]) {
+        [self.delegate mediaProgressView:self sliderWillChange:sender.value];
+    }
 }
 /** slider 正在滑动 */
 - (void)playSliderChange:(KYSlider *)sender {
     _isSliding = YES;
     _playValue = sender.value;
-    self.sliderDidChangeBlock(sender.value);
+    if (self.sliderDidChangeBlock) {
+        self.sliderDidChangeBlock(sender.value);
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mediaProgressView:sliderDidChange:)]) {
+        [self.delegate mediaProgressView:self sliderDidChange:sender.value];
+    }
     // 当使用贝塞尔曲线描绘已播放线段时，需要打开此方法
     // [self setNeedsDisplay];
 }
@@ -189,8 +205,13 @@
 /** slider 结束滑动 */
 - (void)playSliderEnd:(KYSlider *)sender {
     _playValue = sender.value;
-    self.sliderEndChangeBlock(sender.value);
     _isSliding = NO;
+    if (self.sliderEndChangeBlock) {
+        self.sliderEndChangeBlock(sender.value);
+    }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mediaProgressView:sliderEndChange:)]) {
+        [self.delegate mediaProgressView:self sliderEndChange:sender.value];
+    }
     // 当使用贝塞尔曲线描绘已播放线段时，需要打开此方法
     // [self setNeedsDisplay];
 }

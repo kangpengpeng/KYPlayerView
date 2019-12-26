@@ -11,13 +11,15 @@
 #import <AVFoundation/AVFoundation.h>
 #import "KYMediaTools.h"
 
-
-#define k_ANIMATION_DURATION         0.3
+/** 默认动画执行时间 */
+#define k_ANIMATION_DURATION                 0.3
+/** 控制视图背景色（底部，头部视图） */
+#define k_CONTROL_BACKGROUND_COLOR           [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]
 
 /** 隐藏底部视图的延迟时间 */
-#define k_HIDDEN_DELAY     3
+#define k_HIDDEN_DELAY                       3
 
-@interface KYMediaControlView()
+@interface KYMediaControlView() <KYMediaProgressViewDelegate>
 /** 中间打的播放按钮 */
 @property (nonatomic, strong)UIButton *largePlayBtn;
 
@@ -131,7 +133,9 @@
 - (void)setPlayEndUI {
     [self.playBtn setSelected:NO];
     [self.largePlayBtn setSelected:NO];
-    [self.largePlayBtn setHidden:NO];
+    if (_isShowLargePlayBtn) {
+        [self.largePlayBtn setHidden:NO];
+    }
     _isPlay = NO;
 }
 
@@ -147,23 +151,6 @@
         [self addSubviews];
         [self setupSubviews];
         [self addGesture];
-        __weak typeof(self) weakSelf = self;
-        self.progressView.sliderWillChangeBlock = ^(float value) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            [strongSelf showControlView];
-        };
-        self.progressView.sliderDidChangeBlock = ^(float value) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            if (strongSelf.contorlDelegate && [strongSelf.contorlDelegate respondsToSelector:@selector(mediaControl:isSlidingProgress:)]) {
-                [strongSelf.contorlDelegate mediaControl:strongSelf isSlidingProgress:value];
-            }
-        };
-        self.progressView.sliderEndChangeBlock = ^(float value) {
-            __strong typeof(weakSelf) strongSelf = weakSelf;
-            if (strongSelf.contorlDelegate && [strongSelf.contorlDelegate respondsToSelector:@selector(mediaControl:endSlidProgress:)]) {
-                [strongSelf.contorlDelegate mediaControl:strongSelf endSlidProgress:value];
-            }
-        };
     }
     return self;
 }
@@ -176,6 +163,26 @@
     _isShowControlView = YES;
     _isAnimating = NO;
     _isShowLargePlayBtn = YES;
+}
+
+#pragma mark: - KYMediaProgressViewDelegate
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderWillChange:(CGFloat)value {
+    if (_hideAnimationBlock) dispatch_block_cancel(_hideAnimationBlock);
+    [self showControlView];
+}
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderDidChange:(CGFloat)value {
+    if (self.contorlDelegate && [self.contorlDelegate respondsToSelector:@selector(mediaControl:isSlidingProgress:)]) {
+        [self.contorlDelegate mediaControl:self isSlidingProgress:value];
+    }
+}
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderEndChange:(CGFloat)value {
+    if (self.contorlDelegate && [self.contorlDelegate respondsToSelector:@selector(mediaControl:endSlidProgress:)]) {
+        [self.contorlDelegate mediaControl:self endSlidProgress:value];
+    }
+    // 快进完，如果正在播放，则延时隐藏
+    if (self->_isPlay) {
+        [self hideControlViewDelay:k_HIDDEN_DELAY];
+    }
 }
 
 #pragma mark: - 手势
@@ -201,6 +208,11 @@
 
 - (void)singleTapAction:(UITapGestureRecognizer *)ges {
     if (_isShowControlView) {
+        CGPoint loca = [ges locationInView:self];
+        if (loca.y < _topContentHeight || loca.y > (self.frame.size.height-_bottomContentHeight)) {
+            NSLog(@"return ---------------------------0");
+            return;
+        }
         [self hideControlViewDelay:0];
     } else {
         [self showControlView];
@@ -723,14 +735,14 @@
 - (UIView *)bottomContentView {
     if (!_bottomContentView) {
         _bottomContentView = [[UIView alloc] init];
-        _bottomContentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        _bottomContentView.backgroundColor = k_CONTROL_BACKGROUND_COLOR;
     }
     return _bottomContentView;
 }
 - (UIView *)topContentView {
     if (!_topContentView) {
         _topContentView = [[UIView alloc] init];
-        _topContentView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5];
+        _topContentView.backgroundColor = k_CONTROL_BACKGROUND_COLOR;
     }
     return _topContentView;
 }
@@ -738,8 +750,8 @@
 - (UIButton *)largePlayBtn {
     if (!_largePlayBtn) {
         _largePlayBtn = [[UIButton alloc] init];
-        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"play_large_2"] forState:UIControlStateNormal];
-        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"pause_large_2"] forState:UIControlStateSelected];
+        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"play_large"] forState:UIControlStateNormal];
+        [_largePlayBtn setBackgroundImage:[UIImage imageNamed:@"pause_large"] forState:UIControlStateSelected];
         [_largePlayBtn addTarget:self action:@selector(clickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _largePlayBtn;
@@ -750,10 +762,9 @@
 - (UIButton *)playBtn {
     if (!_playBtn) {
         _playBtn = [[UIButton alloc] init];
-//        _playBtn.backgroundColor = [UIColor redColor];
         // [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"play_2" ofType:@"png"]]
-        [_playBtn setBackgroundImage:[UIImage imageNamed:@"play_2"] forState:UIControlStateNormal];
-        [_playBtn setBackgroundImage:[UIImage imageNamed:@"pause_2"] forState:UIControlStateSelected];
+        [_playBtn setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+        [_playBtn setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateSelected];
         [_playBtn addTarget:self action:@selector(clickPlayBtn:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _playBtn;
@@ -762,8 +773,8 @@
 - (UIButton *)fullBtn {
     if (!_fullBtn) {
         _fullBtn = [[UIButton alloc] init];
-        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"full_2"] forState:UIControlStateNormal];
-        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"unfull_2"] forState:UIControlStateSelected];
+        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"full"] forState:UIControlStateNormal];
+        [_fullBtn setBackgroundImage:[UIImage imageNamed:@"unfull"] forState:UIControlStateSelected];
         [_fullBtn addTarget:self action:@selector(fullScreen:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _fullBtn;
@@ -796,6 +807,31 @@
 - (KYMediaProgressView *)progressView {
     if (!_progressView) {
         _progressView = [[KYMediaProgressView alloc] init];
+        _progressView.delegate = self;
+        /* 提供了 block 和协议两种方法传递滑块的拖拽事件
+        __weak typeof(self) weakSelf = self;
+        _progressView.sliderWillChangeBlock = ^(CGFloat value) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf->_hideAnimationBlock) dispatch_block_cancel(strongSelf->_hideAnimationBlock);
+            [strongSelf showControlView];
+        };
+        _progressView.sliderDidChangeBlock = ^(CGFloat value) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf.contorlDelegate && [strongSelf.contorlDelegate respondsToSelector:@selector(mediaControl:isSlidingProgress:)]) {
+                [strongSelf.contorlDelegate mediaControl:strongSelf isSlidingProgress:value];
+            }
+        };
+        _progressView.sliderEndChangeBlock = ^(CGFloat value) {
+            __strong typeof(weakSelf) strongSelf = weakSelf;
+            if (strongSelf.contorlDelegate && [strongSelf.contorlDelegate respondsToSelector:@selector(mediaControl:endSlidProgress:)]) {
+                [strongSelf.contorlDelegate mediaControl:strongSelf endSlidProgress:value];
+            }
+            // 快进完，如果正在播放，则延时隐藏
+            if (strongSelf->_isPlay) {
+                [strongSelf hideControlViewDelay:k_HIDDEN_DELAY];
+            }
+        };
+         */
     }
     return _progressView;
 }

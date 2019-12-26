@@ -8,11 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^SlideBlock)(float value);
+@class KYMediaProgressView;
+@protocol KYMediaProgressViewDelegate <NSObject>
+
+@optional
+/** 将要拖拽滑动 */
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderWillChange:(CGFloat)value;
+/** 正在拖拽滑动 */
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderDidChange:(CGFloat)value;
+/** 完成拖拽滑动 */
+- (void)mediaProgressView:(KYMediaProgressView *)progressView sliderEndChange:(CGFloat)value;
+@end
+
+typedef void(^SlideBlock)(CGFloat value);
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface KYMediaProgressView : UIView
+
+@property (nonatomic, weak)id<KYMediaProgressViewDelegate> delegate;
 
 /** 缓存进度 */
 @property (nonatomic, assign)CGFloat cacheValue;
@@ -36,6 +50,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 是否允许进度条滑动 */
 - (void)setEnableSlip:(BOOL)isEnable;
+
+/**
+ 设置滑块颜色和图片
+ @param  color              滑动条左侧颜色
+ @param  normalImage        滑块 UIControlStateNormal 状态图片
+ @param  highlightedImage   滑块 UIControlStateHighlighted 状态图片
+ */
+- (void)setThumbTintColor:(UIColor *)color normalImage:(UIImage *)normalImage highlightedImage:(UIImage *)highlightedImage;
 
 @end
 
