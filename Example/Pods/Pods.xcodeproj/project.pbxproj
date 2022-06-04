@@ -1,0 +1,1087 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02BE33BF7303C7AD92440471089C6FCF /* KYBackButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 416FAF782F1E797F99093529D731F0F1 /* KYBackButton.m */; };
+		0C01AC917CC18663770E98F50EF1C117 /* slider@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C5829C400CC0CDE81D575E61355D2C08 /* slider@2x.png */; };
+		13ABBFB71F63228730FEF6E5C1F41F56 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		142692851AD35BB833ABEE0AA6D27C98 /* volume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 75643B1E465FF54FCA51B3E79FBC3ED2 /* volume@2x.png */; };
+		1699342E487E0039DF0316F747F16536 /* play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7351698CCF208B9CD208B85AFD1847B0 /* play@2x.png */; };
+		1A311C5FECC0B2FD7673F6BBE3125467 /* KYMediaTools.h in Headers */ = {isa = PBXBuildFile; fileRef = EC60176E8A37B7431334DBFCA1FE4471 /* KYMediaTools.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1AF553AC8B3ADF98AD69EE90D1A3EE3C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		21376E1767BF74A8944C5B0D897FB982 /* unvolume@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DEF8E3B95548E175975A8DD465A7AD3D /* unvolume@2x.png */; };
+		232C2975EFB3E73470AEE495D596DB28 /* navi_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4F67228A532B055EF6209B743C54455C /* navi_back@2x.png */; };
+		23491F93DD990B0FED10FCCF9D54188A /* pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 66AF92F45F86E2414A325F773BBBD070 /* pause@2x.png */; };
+		2678EDEA51272F74399ABB4BE72DBB45 /* KYMediaControlView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B19FF75E4372CE5B77880BCB1167350 /* KYMediaControlView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FDCBF61E68ADD3EDD48936348F46B5E /* KYFastView.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F0318680EBFFB310DAA06CBA70EE9D /* KYFastView.m */; };
+		3B8E3448D9C4D574192C1AAAF7D84680 /* KYVolumeView.h in Headers */ = {isa = PBXBuildFile; fileRef = AC9BC8FC8E9801A20FF7D4687989E066 /* KYVolumeView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3CEC6BCBC8A128B9ECF15D5D28421633 /* Pods-KYPlayerView_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E256ED4C6B3BFB14984B40F7CA929A71 /* Pods-KYPlayerView_Tests-dummy.m */; };
+		637BB83FE4E84107DC2EB9533CA13510 /* KYFastView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A3747B2796372B7121CAFDBA3D32E6B /* KYFastView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		654F152AB4591AF6ACB51FFCBAD8763F /* Pods-KYPlayerView_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C7694D75A17459A1A0C27EB535AE9E3F /* Pods-KYPlayerView_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67EA6D0F0F7F3A81D064CA80E2ECFCC7 /* KYBrightnessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EB0FE37EACFA7D1799886B7A4D2464E /* KYBrightnessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		87DF1CE5B63C70274124E2CAE9C68694 /* KYMediaTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 319EC034EE3FBC3B40D0E905C3271F11 /* KYMediaTools.m */; };
+		8F27E52CC23BAA5F346729014562D6A7 /* pause_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 98D61D87F16CFA5F8EBDF77CAC1416A6 /* pause_large@2x.png */; };
+		93AF2D9FA41919F6DDF14F630EA77018 /* KYVolumeView.m in Sources */ = {isa = PBXBuildFile; fileRef = E650EE4E3056708A36EF38050597EA6C /* KYVolumeView.m */; };
+		95DA3282146E988812A614C78A2D727C /* KYPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = D5F55F0B811427F9E40D96932405C10A /* KYPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		98EFE89D283FD7762E1359D7F03C6582 /* Resource in Resources */ = {isa = PBXBuildFile; fileRef = 2A6591157187EBAB6919D5C9BFD9CD74 /* Resource */; };
+		9A8BF62813E6062979B00BFE0B3FC774 /* KYPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FFAAE474E4D909A88E4AA245632EBD1 /* KYPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9FD38DFD43AB41AEBC77C5C9489B6AD5 /* KYMediaProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = DB865CA657DA3C011D3EE0EC799586AF /* KYMediaProgressView.m */; };
+		A2926330C3DDC5B703412AD3E45C457D /* KYSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F468853BCAD52BA9945CEDA8A499F6C /* KYSlider.m */; };
+		A87437605C4563426CC685143CDEF3D7 /* KYMediaHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A517685132CEB4A62F31BBCBC4400AB /* KYMediaHUD.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A96F5DEBC9281CA9B049DC6A0279A507 /* KYPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 335FFE0D454BF451FAE6E83D0A696B0F /* KYPlayerView.m */; };
+		AADD4860000357FACF06E892E5353AFA /* liangdu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A423F3E3B5C9BB710596ABC71C6C4E28 /* liangdu@2x.png */; };
+		AE9F80FF07E301C1F551FD86D0AEDB0F /* unfull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A94A41813EF184A34253A954A90B34F /* unfull@2x.png */; };
+		AEC77C291B68A80733FB32868B0174DF /* KYMediaControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 12D4C1944FDA8194425E3BBE04D67B04 /* KYMediaControlView.m */; };
+		C577D3F5D7D9423095A88ECE05B29832 /* KYPlayerView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC88593FDD14B973E3DEBB63270AE35E /* KYPlayerView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C5D30950DF45B08A2192B0DB6CB515CD /* KYSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C1CD592A1865B53894D0DB02B6A6CF6 /* KYSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8507DD03EDDE8AB0F0FE4FA03347FFD /* full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0F489DEDA7608B056CA159A9F93CBC6E /* full@2x.png */; };
+		CB250A0A2D3FC150B769714F0918DC1B /* KYPlayerView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BFD875C2FD03D439098E78AB52ABE6 /* KYPlayerView-dummy.m */; };
+		CF351A4760DAAB54FA01A8A1F76F3DDC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		D0CFD9A904A1A05CE67BC93522DD7433 /* Pods-KYPlayerView_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 27FF626D5DDF78D24A9987BA65EB66AA /* Pods-KYPlayerView_Example-dummy.m */; };
+		D5354B3613C66E1A498D5DC6B0DBCB42 /* KYPlayerView-KYPlayerView in Resources */ = {isa = PBXBuildFile; fileRef = BEFCF3D398BBC35EDDAF3AAB5E67A4F1 /* KYPlayerView-KYPlayerView */; };
+		D88CB6574297A68A6161DE98A1AC9822 /* Pods-KYPlayerView_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EF6294F462118BA475D39952B13060AE /* Pods-KYPlayerView_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E2BDFA9B7F5D3BE3B2C44503D4B3A1B9 /* KYBackButton.h in Headers */ = {isa = PBXBuildFile; fileRef = BF2077C3563C406697365449C1C33AB8 /* KYBackButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E590B2F466701668853DE36A2DB13743 /* KYMediaHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 20AEB8A82ED08F491FEC9A7CA8E3C4AD /* KYMediaHUD.m */; };
+		EBF1229B01A95359D05469EEAACABD33 /* KYMediaProgressView.h in Headers */ = {isa = PBXBuildFile; fileRef = 234F5E14760578C83A4348863C3E93A0 /* KYMediaProgressView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EE69110CC25046FD0ADAF30E047C5EA2 /* KYPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 342BA8CD8B92FA3550760587E6E9A95E /* KYPlayer.m */; };
+		F08F02F6585E22A37845C8F112E0E00D /* play_large@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9DD1CB456E1E9173E75975095138C3C1 /* play_large@2x.png */; };
+		F872114179F571596B735D4FDCBFFCC3 /* slider_seleted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 42C4DC4C1836DD1C954D1BFCCF662970 /* slider_seleted@2x.png */; };
+		FBA7A8164E2FF3A5211F60FD4228E597 /* KYBrightnessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF58885EB521CB6FF8134FAE3564BE0 /* KYBrightnessView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		954AAA48351BFEDDE99E8A208FD03CC1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5CCD2F3CCCF4F2C3607A43D88E45D0B1;
+			remoteInfo = "Pods-KYPlayerView_Example";
+		};
+		9764943860A47A4AD6260A99618F67EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B8BE0F2BCD3F5F49C2E8796F19F09DA7;
+			remoteInfo = "KYPlayerView-KYPlayerView";
+		};
+		D420008E7719D661239751A185DD9058 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D02B7CAC1F50C2A6EFF4B5052EE9504B;
+			remoteInfo = KYPlayerView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03265D506CE824B2949C09D824B43B3B /* Pods-KYPlayerView_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KYPlayerView_Example-Info.plist"; sourceTree = "<group>"; };
+		0CF58885EB521CB6FF8134FAE3564BE0 /* KYBrightnessView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYBrightnessView.m; sourceTree = "<group>"; };
+		0F489DEDA7608B056CA159A9F93CBC6E /* full@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "full@2x.png"; sourceTree = "<group>"; };
+		12D4C1944FDA8194425E3BBE04D67B04 /* KYMediaControlView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYMediaControlView.m; sourceTree = "<group>"; };
+		17565AA9F4E66A5F126574E02281F00B /* KYPlayerView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KYPlayerView; path = KYPlayerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20AEB8A82ED08F491FEC9A7CA8E3C4AD /* KYMediaHUD.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYMediaHUD.m; sourceTree = "<group>"; };
+		234F5E14760578C83A4348863C3E93A0 /* KYMediaProgressView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYMediaProgressView.h; sourceTree = "<group>"; };
+		27FF626D5DDF78D24A9987BA65EB66AA /* Pods-KYPlayerView_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KYPlayerView_Example-dummy.m"; sourceTree = "<group>"; };
+		2A39BBC258446ED334C319C2A9436612 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		2A6591157187EBAB6919D5C9BFD9CD74 /* Resource */ = {isa = PBXFileReference; includeInIndex = 1; name = Resource; path = KYPlayerView/Assets/Resource; sourceTree = "<group>"; };
+		303E2DF9818F715781500BA12E55B038 /* KYPlayerView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KYPlayerView.modulemap; sourceTree = "<group>"; };
+		30CA00080A9755B989B5C9B912D39D0F /* Pods-KYPlayerView_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KYPlayerView_Tests-Info.plist"; sourceTree = "<group>"; };
+		319EC034EE3FBC3B40D0E905C3271F11 /* KYMediaTools.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYMediaTools.m; sourceTree = "<group>"; };
+		335FFE0D454BF451FAE6E83D0A696B0F /* KYPlayerView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KYPlayerView.m; path = KYPlayerView/Classes/KYPlayerView.m; sourceTree = "<group>"; };
+		342BA8CD8B92FA3550760587E6E9A95E /* KYPlayer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYPlayer.m; sourceTree = "<group>"; };
+		35DC895BF1F4E68FFEAC912B0CBAE870 /* Pods-KYPlayerView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KYPlayerView_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		3FFAAE474E4D909A88E4AA245632EBD1 /* KYPlayerView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KYPlayerView.h; path = KYPlayerView/Classes/KYPlayerView.h; sourceTree = "<group>"; };
+		416FAF782F1E797F99093529D731F0F1 /* KYBackButton.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYBackButton.m; sourceTree = "<group>"; };
+		42978EF0A363D546E26A1841BC869104 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		42C4DC4C1836DD1C954D1BFCCF662970 /* slider_seleted@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "slider_seleted@2x.png"; sourceTree = "<group>"; };
+		4A94A41813EF184A34253A954A90B34F /* unfull@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "unfull@2x.png"; sourceTree = "<group>"; };
+		4B19FF75E4372CE5B77880BCB1167350 /* KYMediaControlView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYMediaControlView.h; sourceTree = "<group>"; };
+		4B7643C0B8F1F0DC0DCBA52BE2267488 /* Pods-KYPlayerView_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KYPlayerView_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		4DBD14F19F5D7A4C9012293A1E24CDFE /* Pods-KYPlayerView_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KYPlayerView_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		4EB0653E31F9821EAA5022A3EDE4B468 /* Pods-KYPlayerView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KYPlayerView_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		4F67228A532B055EF6209B743C54455C /* navi_back@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "navi_back@2x.png"; sourceTree = "<group>"; };
+		5A517685132CEB4A62F31BBCBC4400AB /* KYMediaHUD.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYMediaHUD.h; sourceTree = "<group>"; };
+		5C1CD592A1865B53894D0DB02B6A6CF6 /* KYSlider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYSlider.h; sourceTree = "<group>"; };
+		5EB0FE37EACFA7D1799886B7A4D2464E /* KYBrightnessView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYBrightnessView.h; sourceTree = "<group>"; };
+		5F468853BCAD52BA9945CEDA8A499F6C /* KYSlider.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYSlider.m; sourceTree = "<group>"; };
+		62A109171EC4165FD6DB72B936EB02CA /* Pods-KYPlayerView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KYPlayerView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		62B732D834B4F882D475546FAFE488C2 /* KYPlayerView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYPlayerView-prefix.pch"; sourceTree = "<group>"; };
+		66AF92F45F86E2414A325F773BBBD070 /* pause@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "pause@2x.png"; sourceTree = "<group>"; };
+		6A3747B2796372B7121CAFDBA3D32E6B /* KYFastView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYFastView.h; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		7351698CCF208B9CD208B85AFD1847B0 /* play@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "play@2x.png"; sourceTree = "<group>"; };
+		74A34730E8BDD337985169ABCA9D7233 /* Pods-KYPlayerView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KYPlayerView_Example.release.xcconfig"; sourceTree = "<group>"; };
+		75643B1E465FF54FCA51B3E79FBC3ED2 /* volume@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "volume@2x.png"; sourceTree = "<group>"; };
+		88F9BDBD0982E4F2B366EA493B34F6FB /* Pods-KYPlayerView_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KYPlayerView_Example.modulemap"; sourceTree = "<group>"; };
+		915B3914D533068A663D97AF6CA791F2 /* Pods-KYPlayerView_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KYPlayerView_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		94BFD875C2FD03D439098E78AB52ABE6 /* KYPlayerView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KYPlayerView-dummy.m"; sourceTree = "<group>"; };
+		98D61D87F16CFA5F8EBDF77CAC1416A6 /* pause_large@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "pause_large@2x.png"; sourceTree = "<group>"; };
+		9BCF4B6CDD5A2390425E36DEF534BAB9 /* KYPlayerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KYPlayerView.debug.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9DD1CB456E1E9173E75975095138C3C1 /* play_large@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "play_large@2x.png"; sourceTree = "<group>"; };
+		A423F3E3B5C9BB710596ABC71C6C4E28 /* liangdu@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "liangdu@2x.png"; sourceTree = "<group>"; };
+		AC9BC8FC8E9801A20FF7D4687989E066 /* KYVolumeView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYVolumeView.h; sourceTree = "<group>"; };
+		B5774F841F9D29B63613CC78F346CB20 /* KYPlayerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KYPlayerView-Info.plist"; sourceTree = "<group>"; };
+		BA8C7A8C610D250E38A769DD7316D87B /* Pods-KYPlayerView_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-KYPlayerView_Example-frameworks.sh"; sourceTree = "<group>"; };
+		BEFCF3D398BBC35EDDAF3AAB5E67A4F1 /* KYPlayerView-KYPlayerView */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "KYPlayerView-KYPlayerView"; path = KYPlayerView.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF2077C3563C406697365449C1C33AB8 /* KYBackButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYBackButton.h; sourceTree = "<group>"; };
+		C4F0318680EBFFB310DAA06CBA70EE9D /* KYFastView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYFastView.m; sourceTree = "<group>"; };
+		C5829C400CC0CDE81D575E61355D2C08 /* slider@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "slider@2x.png"; sourceTree = "<group>"; };
+		C7694D75A17459A1A0C27EB535AE9E3F /* Pods-KYPlayerView_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KYPlayerView_Example-umbrella.h"; sourceTree = "<group>"; };
+		D351F84CEE9B4F9DA6C02B4540B7397F /* KYPlayerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KYPlayerView.release.xcconfig; sourceTree = "<group>"; };
+		D5F55F0B811427F9E40D96932405C10A /* KYPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYPlayer.h; sourceTree = "<group>"; };
+		DB865CA657DA3C011D3EE0EC799586AF /* KYMediaProgressView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYMediaProgressView.m; sourceTree = "<group>"; };
+		DD75767693F070B525664B9FED75ABE8 /* Pods-KYPlayerView_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-KYPlayerView_Tests"; path = Pods_KYPlayerView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DEF8E3B95548E175975A8DD465A7AD3D /* unvolume@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = "unvolume@2x.png"; sourceTree = "<group>"; };
+		E256ED4C6B3BFB14984B40F7CA929A71 /* Pods-KYPlayerView_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KYPlayerView_Tests-dummy.m"; sourceTree = "<group>"; };
+		E3746A24C85B31487F4BE9B159D257D7 /* ResourceBundle-KYPlayerView-KYPlayerView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-KYPlayerView-KYPlayerView-Info.plist"; sourceTree = "<group>"; };
+		E64FB801493FA7D1DBA18BFD8552C868 /* Pods-KYPlayerView_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-KYPlayerView_Example"; path = Pods_KYPlayerView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E650EE4E3056708A36EF38050597EA6C /* KYVolumeView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = KYVolumeView.m; sourceTree = "<group>"; };
+		EA96D623EA1D1A38E09D5AFE01EF7A6A /* Pods-KYPlayerView_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KYPlayerView_Tests.modulemap"; sourceTree = "<group>"; };
+		EC60176E8A37B7431334DBFCA1FE4471 /* KYMediaTools.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = KYMediaTools.h; sourceTree = "<group>"; };
+		EF0BBFC2FF46D5816871016314663E6A /* KYPlayerView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = KYPlayerView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		EF6294F462118BA475D39952B13060AE /* Pods-KYPlayerView_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KYPlayerView_Tests-umbrella.h"; sourceTree = "<group>"; };
+		F4283F4BD3F11B80323C35EAD741AF89 /* Pods-KYPlayerView_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KYPlayerView_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		FC88593FDD14B973E3DEBB63270AE35E /* KYPlayerView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KYPlayerView-umbrella.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B5411F9B7BB55CF374BAF4D8208E641 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF351A4760DAAB54FA01A8A1F76F3DDC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CBDFA7456D19E8271976178049B71F2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1AF553AC8B3ADF98AD69EE90D1A3EE3C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		870A7B9A39C6EA48C9EFDC80973224C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13ABBFB71F63228730FEF6E5C1F41F56 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE90CECFAE1A5B27C6E891B503D09331 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		097C9FAF185B7A72A4B6F05E04142C94 /* KYCommonView */ = {
+			isa = PBXGroup;
+			children = (
+				BF2077C3563C406697365449C1C33AB8 /* KYBackButton.h */,
+				416FAF782F1E797F99093529D731F0F1 /* KYBackButton.m */,
+				5A517685132CEB4A62F31BBCBC4400AB /* KYMediaHUD.h */,
+				20AEB8A82ED08F491FEC9A7CA8E3C4AD /* KYMediaHUD.m */,
+			);
+			name = KYCommonView;
+			path = KYPlayerView/Classes/KYCommonView;
+			sourceTree = "<group>";
+		};
+		1C90DA1F34E49EA5F21CBF0FFBCE8EE6 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0F489DEDA7608B056CA159A9F93CBC6E /* full@2x.png */,
+				A423F3E3B5C9BB710596ABC71C6C4E28 /* liangdu@2x.png */,
+				4F67228A532B055EF6209B743C54455C /* navi_back@2x.png */,
+				66AF92F45F86E2414A325F773BBBD070 /* pause@2x.png */,
+				98D61D87F16CFA5F8EBDF77CAC1416A6 /* pause_large@2x.png */,
+				7351698CCF208B9CD208B85AFD1847B0 /* play@2x.png */,
+				9DD1CB456E1E9173E75975095138C3C1 /* play_large@2x.png */,
+				C5829C400CC0CDE81D575E61355D2C08 /* slider@2x.png */,
+				42C4DC4C1836DD1C954D1BFCCF662970 /* slider_seleted@2x.png */,
+				4A94A41813EF184A34253A954A90B34F /* unfull@2x.png */,
+				DEF8E3B95548E175975A8DD465A7AD3D /* unvolume@2x.png */,
+				75643B1E465FF54FCA51B3E79FBC3ED2 /* volume@2x.png */,
+			);
+			name = Resource;
+			path = KYPlayerView/Assets/Resource;
+			sourceTree = "<group>";
+		};
+		29CD638930F3FE21B3909F21A58F79CC /* Pods-KYPlayerView_Example */ = {
+			isa = PBXGroup;
+			children = (
+				88F9BDBD0982E4F2B366EA493B34F6FB /* Pods-KYPlayerView_Example.modulemap */,
+				4DBD14F19F5D7A4C9012293A1E24CDFE /* Pods-KYPlayerView_Example-acknowledgements.markdown */,
+				4B7643C0B8F1F0DC0DCBA52BE2267488 /* Pods-KYPlayerView_Example-acknowledgements.plist */,
+				27FF626D5DDF78D24A9987BA65EB66AA /* Pods-KYPlayerView_Example-dummy.m */,
+				BA8C7A8C610D250E38A769DD7316D87B /* Pods-KYPlayerView_Example-frameworks.sh */,
+				03265D506CE824B2949C09D824B43B3B /* Pods-KYPlayerView_Example-Info.plist */,
+				C7694D75A17459A1A0C27EB535AE9E3F /* Pods-KYPlayerView_Example-umbrella.h */,
+				35DC895BF1F4E68FFEAC912B0CBAE870 /* Pods-KYPlayerView_Example.debug.xcconfig */,
+				74A34730E8BDD337985169ABCA9D7233 /* Pods-KYPlayerView_Example.release.xcconfig */,
+			);
+			name = "Pods-KYPlayerView_Example";
+			path = "Target Support Files/Pods-KYPlayerView_Example";
+			sourceTree = "<group>";
+		};
+		3645976A688AFB6D2726E7C966FEAB79 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				77C2931AB8B0671C71A0E965702FAC48 /* KYPlayerView */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		479301DFA936E7DF2EE700B8A83E1D66 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				303E2DF9818F715781500BA12E55B038 /* KYPlayerView.modulemap */,
+				94BFD875C2FD03D439098E78AB52ABE6 /* KYPlayerView-dummy.m */,
+				B5774F841F9D29B63613CC78F346CB20 /* KYPlayerView-Info.plist */,
+				62B732D834B4F882D475546FAFE488C2 /* KYPlayerView-prefix.pch */,
+				FC88593FDD14B973E3DEBB63270AE35E /* KYPlayerView-umbrella.h */,
+				9BCF4B6CDD5A2390425E36DEF534BAB9 /* KYPlayerView.debug.xcconfig */,
+				D351F84CEE9B4F9DA6C02B4540B7397F /* KYPlayerView.release.xcconfig */,
+				E3746A24C85B31487F4BE9B159D257D7 /* ResourceBundle-KYPlayerView-KYPlayerView-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/KYPlayerView";
+			sourceTree = "<group>";
+		};
+		4E16E32A0AAAD704AA7C0714FF729969 /* KYVolumeView */ = {
+			isa = PBXGroup;
+			children = (
+				AC9BC8FC8E9801A20FF7D4687989E066 /* KYVolumeView.h */,
+				E650EE4E3056708A36EF38050597EA6C /* KYVolumeView.m */,
+			);
+			name = KYVolumeView;
+			path = KYPlayerView/Classes/KYVolumeView;
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		763110DAF0C93920977CB405FF91D19A /* KYPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				D5F55F0B811427F9E40D96932405C10A /* KYPlayer.h */,
+				342BA8CD8B92FA3550760587E6E9A95E /* KYPlayer.m */,
+			);
+			name = KYPlayer;
+			path = KYPlayerView/Classes/KYPlayer;
+			sourceTree = "<group>";
+		};
+		77C2931AB8B0671C71A0E965702FAC48 /* KYPlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				3FFAAE474E4D909A88E4AA245632EBD1 /* KYPlayerView.h */,
+				335FFE0D454BF451FAE6E83D0A696B0F /* KYPlayerView.m */,
+				2A6591157187EBAB6919D5C9BFD9CD74 /* Resource */,
+				E1BA0AFD106D53F09F111FEB09E16B11 /* KYBrightnessView */,
+				097C9FAF185B7A72A4B6F05E04142C94 /* KYCommonView */,
+				EF42790B294656097D1FCFC0EBBDE24E /* KYControlView */,
+				9C97636B8F445A4B9D1E3CACDE6222AE /* KYFastView */,
+				C1CA3E9BB027A7A79ADB805A5CB4F0F0 /* KYMediaProgressView */,
+				763110DAF0C93920977CB405FF91D19A /* KYPlayer */,
+				932CF3C73CB6487392449B077BE50DC8 /* KYTools */,
+				4E16E32A0AAAD704AA7C0714FF729969 /* KYVolumeView */,
+				BA29DE90B7FB80230C6F62F3F687F4F1 /* Pod */,
+				1C90DA1F34E49EA5F21CBF0FFBCE8EE6 /* Resource */,
+				479301DFA936E7DF2EE700B8A83E1D66 /* Support Files */,
+			);
+			name = KYPlayerView;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		80469818F237E8FEB25858CD7B04D556 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				29CD638930F3FE21B3909F21A58F79CC /* Pods-KYPlayerView_Example */,
+				BEC25C23C443C0B2E1EF04B795029015 /* Pods-KYPlayerView_Tests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		932CF3C73CB6487392449B077BE50DC8 /* KYTools */ = {
+			isa = PBXGroup;
+			children = (
+				EC60176E8A37B7431334DBFCA1FE4471 /* KYMediaTools.h */,
+				319EC034EE3FBC3B40D0E905C3271F11 /* KYMediaTools.m */,
+			);
+			name = KYTools;
+			path = KYPlayerView/Classes/KYTools;
+			sourceTree = "<group>";
+		};
+		9A06403FD707C3549C6678B16D5D4FF3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17565AA9F4E66A5F126574E02281F00B /* KYPlayerView */,
+				BEFCF3D398BBC35EDDAF3AAB5E67A4F1 /* KYPlayerView-KYPlayerView */,
+				E64FB801493FA7D1DBA18BFD8552C868 /* Pods-KYPlayerView_Example */,
+				DD75767693F070B525664B9FED75ABE8 /* Pods-KYPlayerView_Tests */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C97636B8F445A4B9D1E3CACDE6222AE /* KYFastView */ = {
+			isa = PBXGroup;
+			children = (
+				6A3747B2796372B7121CAFDBA3D32E6B /* KYFastView.h */,
+				C4F0318680EBFFB310DAA06CBA70EE9D /* KYFastView.m */,
+			);
+			name = KYFastView;
+			path = KYPlayerView/Classes/KYFastView;
+			sourceTree = "<group>";
+		};
+		BA29DE90B7FB80230C6F62F3F687F4F1 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				EF0BBFC2FF46D5816871016314663E6A /* KYPlayerView.podspec */,
+				42978EF0A363D546E26A1841BC869104 /* LICENSE */,
+				2A39BBC258446ED334C319C2A9436612 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		BEC25C23C443C0B2E1EF04B795029015 /* Pods-KYPlayerView_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				EA96D623EA1D1A38E09D5AFE01EF7A6A /* Pods-KYPlayerView_Tests.modulemap */,
+				915B3914D533068A663D97AF6CA791F2 /* Pods-KYPlayerView_Tests-acknowledgements.markdown */,
+				F4283F4BD3F11B80323C35EAD741AF89 /* Pods-KYPlayerView_Tests-acknowledgements.plist */,
+				E256ED4C6B3BFB14984B40F7CA929A71 /* Pods-KYPlayerView_Tests-dummy.m */,
+				30CA00080A9755B989B5C9B912D39D0F /* Pods-KYPlayerView_Tests-Info.plist */,
+				EF6294F462118BA475D39952B13060AE /* Pods-KYPlayerView_Tests-umbrella.h */,
+				62A109171EC4165FD6DB72B936EB02CA /* Pods-KYPlayerView_Tests.debug.xcconfig */,
+				4EB0653E31F9821EAA5022A3EDE4B468 /* Pods-KYPlayerView_Tests.release.xcconfig */,
+			);
+			name = "Pods-KYPlayerView_Tests";
+			path = "Target Support Files/Pods-KYPlayerView_Tests";
+			sourceTree = "<group>";
+		};
+		C1CA3E9BB027A7A79ADB805A5CB4F0F0 /* KYMediaProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				234F5E14760578C83A4348863C3E93A0 /* KYMediaProgressView.h */,
+				DB865CA657DA3C011D3EE0EC799586AF /* KYMediaProgressView.m */,
+				5C1CD592A1865B53894D0DB02B6A6CF6 /* KYSlider.h */,
+				5F468853BCAD52BA9945CEDA8A499F6C /* KYSlider.m */,
+			);
+			name = KYMediaProgressView;
+			path = KYPlayerView/Classes/KYMediaProgressView;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				3645976A688AFB6D2726E7C966FEAB79 /* Development Pods */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				9A06403FD707C3549C6678B16D5D4FF3 /* Products */,
+				80469818F237E8FEB25858CD7B04D556 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E1BA0AFD106D53F09F111FEB09E16B11 /* KYBrightnessView */ = {
+			isa = PBXGroup;
+			children = (
+				5EB0FE37EACFA7D1799886B7A4D2464E /* KYBrightnessView.h */,
+				0CF58885EB521CB6FF8134FAE3564BE0 /* KYBrightnessView.m */,
+			);
+			name = KYBrightnessView;
+			path = KYPlayerView/Classes/KYBrightnessView;
+			sourceTree = "<group>";
+		};
+		EF42790B294656097D1FCFC0EBBDE24E /* KYControlView */ = {
+			isa = PBXGroup;
+			children = (
+				4B19FF75E4372CE5B77880BCB1167350 /* KYMediaControlView.h */,
+				12D4C1944FDA8194425E3BBE04D67B04 /* KYMediaControlView.m */,
+			);
+			name = KYControlView;
+			path = KYPlayerView/Classes/KYControlView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		197DA03424DCDF1983273FD46548CAA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E2BDFA9B7F5D3BE3B2C44503D4B3A1B9 /* KYBackButton.h in Headers */,
+				67EA6D0F0F7F3A81D064CA80E2ECFCC7 /* KYBrightnessView.h in Headers */,
+				637BB83FE4E84107DC2EB9533CA13510 /* KYFastView.h in Headers */,
+				2678EDEA51272F74399ABB4BE72DBB45 /* KYMediaControlView.h in Headers */,
+				A87437605C4563426CC685143CDEF3D7 /* KYMediaHUD.h in Headers */,
+				EBF1229B01A95359D05469EEAACABD33 /* KYMediaProgressView.h in Headers */,
+				1A311C5FECC0B2FD7673F6BBE3125467 /* KYMediaTools.h in Headers */,
+				95DA3282146E988812A614C78A2D727C /* KYPlayer.h in Headers */,
+				9A8BF62813E6062979B00BFE0B3FC774 /* KYPlayerView.h in Headers */,
+				C577D3F5D7D9423095A88ECE05B29832 /* KYPlayerView-umbrella.h in Headers */,
+				C5D30950DF45B08A2192B0DB6CB515CD /* KYSlider.h in Headers */,
+				3B8E3448D9C4D574192C1AAAF7D84680 /* KYVolumeView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4265DDA8352F7DB09CF1D317E2D5F7CC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D88CB6574297A68A6161DE98A1AC9822 /* Pods-KYPlayerView_Tests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E4DDE7CD9850C6FAA125D49BB3EED5F /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				654F152AB4591AF6ACB51FFCBAD8763F /* Pods-KYPlayerView_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		30155852FFC6DEF25C73A2489A5EF312 /* Pods-KYPlayerView_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 86CD8A0DB694CC1FE573A970E3F4ED1F /* Build configuration list for PBXNativeTarget "Pods-KYPlayerView_Tests" */;
+			buildPhases = (
+				4265DDA8352F7DB09CF1D317E2D5F7CC /* Headers */,
+				C67DE094FAF10C3767EE8D6F104B0A8A /* Sources */,
+				6CBDFA7456D19E8271976178049B71F2 /* Frameworks */,
+				5599FD415F44DEF0E519D88E032A7325 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3F2D95208885924F3B378F7CB01B55AA /* PBXTargetDependency */,
+			);
+			name = "Pods-KYPlayerView_Tests";
+			productName = Pods_KYPlayerView_Tests;
+			productReference = DD75767693F070B525664B9FED75ABE8 /* Pods-KYPlayerView_Tests */;
+			productType = "com.apple.product-type.framework";
+		};
+		5CCD2F3CCCF4F2C3607A43D88E45D0B1 /* Pods-KYPlayerView_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CE9ECDBF88851BCC5B130B87939E90F /* Build configuration list for PBXNativeTarget "Pods-KYPlayerView_Example" */;
+			buildPhases = (
+				6E4DDE7CD9850C6FAA125D49BB3EED5F /* Headers */,
+				F1EFE5C65C5A9FAE80839B5A7AD94A8F /* Sources */,
+				3B5411F9B7BB55CF374BAF4D8208E641 /* Frameworks */,
+				C4E3A9A8A764E46D9B4124784D819069 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7BE172493DF9E5EED344178D6A90C214 /* PBXTargetDependency */,
+			);
+			name = "Pods-KYPlayerView_Example";
+			productName = Pods_KYPlayerView_Example;
+			productReference = E64FB801493FA7D1DBA18BFD8552C868 /* Pods-KYPlayerView_Example */;
+			productType = "com.apple.product-type.framework";
+		};
+		B8BE0F2BCD3F5F49C2E8796F19F09DA7 /* KYPlayerView-KYPlayerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4FC4AFFE171568E4A23FBF9EF6AE0E4F /* Build configuration list for PBXNativeTarget "KYPlayerView-KYPlayerView" */;
+			buildPhases = (
+				26EFF75D6C1BC2ED71DBAB601AF8C925 /* Sources */,
+				CE90CECFAE1A5B27C6E891B503D09331 /* Frameworks */,
+				7C6C98D81C5D56125D112FFA988AD4D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "KYPlayerView-KYPlayerView";
+			productName = KYPlayerView;
+			productReference = BEFCF3D398BBC35EDDAF3AAB5E67A4F1 /* KYPlayerView-KYPlayerView */;
+			productType = "com.apple.product-type.bundle";
+		};
+		D02B7CAC1F50C2A6EFF4B5052EE9504B /* KYPlayerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9A1B9712DC5836184B680A161B47A8A /* Build configuration list for PBXNativeTarget "KYPlayerView" */;
+			buildPhases = (
+				197DA03424DCDF1983273FD46548CAA1 /* Headers */,
+				C102B3AAD0A95BAA69B610413B6049EB /* Sources */,
+				870A7B9A39C6EA48C9EFDC80973224C9 /* Frameworks */,
+				68E73420F63DD6AF01CB44057387B8C3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				585C058146B9FCAD3CDE07DE0FC8D365 /* PBXTargetDependency */,
+			);
+			name = KYPlayerView;
+			productName = KYPlayerView;
+			productReference = 17565AA9F4E66A5F126574E02281F00B /* KYPlayerView */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 9A06403FD707C3549C6678B16D5D4FF3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D02B7CAC1F50C2A6EFF4B5052EE9504B /* KYPlayerView */,
+				B8BE0F2BCD3F5F49C2E8796F19F09DA7 /* KYPlayerView-KYPlayerView */,
+				5CCD2F3CCCF4F2C3607A43D88E45D0B1 /* Pods-KYPlayerView_Example */,
+				30155852FFC6DEF25C73A2489A5EF312 /* Pods-KYPlayerView_Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5599FD415F44DEF0E519D88E032A7325 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68E73420F63DD6AF01CB44057387B8C3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D5354B3613C66E1A498D5DC6B0DBCB42 /* KYPlayerView-KYPlayerView in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C6C98D81C5D56125D112FFA988AD4D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8507DD03EDDE8AB0F0FE4FA03347FFD /* full@2x.png in Resources */,
+				AADD4860000357FACF06E892E5353AFA /* liangdu@2x.png in Resources */,
+				232C2975EFB3E73470AEE495D596DB28 /* navi_back@2x.png in Resources */,
+				23491F93DD990B0FED10FCCF9D54188A /* pause@2x.png in Resources */,
+				8F27E52CC23BAA5F346729014562D6A7 /* pause_large@2x.png in Resources */,
+				1699342E487E0039DF0316F747F16536 /* play@2x.png in Resources */,
+				F08F02F6585E22A37845C8F112E0E00D /* play_large@2x.png in Resources */,
+				98EFE89D283FD7762E1359D7F03C6582 /* Resource in Resources */,
+				0C01AC917CC18663770E98F50EF1C117 /* slider@2x.png in Resources */,
+				F872114179F571596B735D4FDCBFFCC3 /* slider_seleted@2x.png in Resources */,
+				AE9F80FF07E301C1F551FD86D0AEDB0F /* unfull@2x.png in Resources */,
+				21376E1767BF74A8944C5B0D897FB982 /* unvolume@2x.png in Resources */,
+				142692851AD35BB833ABEE0AA6D27C98 /* volume@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C4E3A9A8A764E46D9B4124784D819069 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26EFF75D6C1BC2ED71DBAB601AF8C925 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C102B3AAD0A95BAA69B610413B6049EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				02BE33BF7303C7AD92440471089C6FCF /* KYBackButton.m in Sources */,
+				FBA7A8164E2FF3A5211F60FD4228E597 /* KYBrightnessView.m in Sources */,
+				2FDCBF61E68ADD3EDD48936348F46B5E /* KYFastView.m in Sources */,
+				AEC77C291B68A80733FB32868B0174DF /* KYMediaControlView.m in Sources */,
+				E590B2F466701668853DE36A2DB13743 /* KYMediaHUD.m in Sources */,
+				9FD38DFD43AB41AEBC77C5C9489B6AD5 /* KYMediaProgressView.m in Sources */,
+				87DF1CE5B63C70274124E2CAE9C68694 /* KYMediaTools.m in Sources */,
+				EE69110CC25046FD0ADAF30E047C5EA2 /* KYPlayer.m in Sources */,
+				A96F5DEBC9281CA9B049DC6A0279A507 /* KYPlayerView.m in Sources */,
+				CB250A0A2D3FC150B769714F0918DC1B /* KYPlayerView-dummy.m in Sources */,
+				A2926330C3DDC5B703412AD3E45C457D /* KYSlider.m in Sources */,
+				93AF2D9FA41919F6DDF14F630EA77018 /* KYVolumeView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C67DE094FAF10C3767EE8D6F104B0A8A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CEC6BCBC8A128B9ECF15D5D28421633 /* Pods-KYPlayerView_Tests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1EFE5C65C5A9FAE80839B5A7AD94A8F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0CFD9A904A1A05CE67BC93522DD7433 /* Pods-KYPlayerView_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3F2D95208885924F3B378F7CB01B55AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-KYPlayerView_Example";
+			target = 5CCD2F3CCCF4F2C3607A43D88E45D0B1 /* Pods-KYPlayerView_Example */;
+			targetProxy = 954AAA48351BFEDDE99E8A208FD03CC1 /* PBXContainerItemProxy */;
+		};
+		585C058146B9FCAD3CDE07DE0FC8D365 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "KYPlayerView-KYPlayerView";
+			target = B8BE0F2BCD3F5F49C2E8796F19F09DA7 /* KYPlayerView-KYPlayerView */;
+			targetProxy = 9764943860A47A4AD6260A99618F67EC /* PBXContainerItemProxy */;
+		};
+		7BE172493DF9E5EED344178D6A90C214 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KYPlayerView;
+			target = D02B7CAC1F50C2A6EFF4B5052EE9504B /* KYPlayerView */;
+			targetProxy = D420008E7719D661239751A185DD9058 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		254A2B8364BF30045D1DA145FFA3A5E2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BCF4B6CDD5A2390425E36DEF534BAB9 /* KYPlayerView.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KYPlayerView/KYPlayerView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KYPlayerView/KYPlayerView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KYPlayerView/KYPlayerView.modulemap";
+				PRODUCT_MODULE_NAME = KYPlayerView;
+				PRODUCT_NAME = KYPlayerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		2682B702FD1C4F5F3ECF8615E09E41AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4EB0653E31F9821EAA5022A3EDE4B468 /* Pods-KYPlayerView_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KYPlayerView_Tests/Pods-KYPlayerView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KYPlayerView_Tests/Pods-KYPlayerView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		30D99297A3F21A0B4B755A98DABD89BA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D351F84CEE9B4F9DA6C02B4540B7397F /* KYPlayerView.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/KYPlayerView";
+				IBSC_MODULE = KYPlayerView;
+				INFOPLIST_FILE = "Target Support Files/KYPlayerView/ResourceBundle-KYPlayerView-KYPlayerView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = KYPlayerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		5E2CFA2BF1CB7FB057BB73FF509CC9D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74A34730E8BDD337985169ABCA9D7233 /* Pods-KYPlayerView_Example.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KYPlayerView_Example/Pods-KYPlayerView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KYPlayerView_Example/Pods-KYPlayerView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7BE7A321AB9FBB58504F9904B44C7B59 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BCF4B6CDD5A2390425E36DEF534BAB9 /* KYPlayerView.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/KYPlayerView";
+				IBSC_MODULE = KYPlayerView;
+				INFOPLIST_FILE = "Target Support Files/KYPlayerView/ResourceBundle-KYPlayerView-KYPlayerView-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_NAME = KYPlayerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		80B6D08E390746394817C44C3A1B9BD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35DC895BF1F4E68FFEAC912B0CBAE870 /* Pods-KYPlayerView_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KYPlayerView_Example/Pods-KYPlayerView_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KYPlayerView_Example/Pods-KYPlayerView_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		CBCDF968895F2A4AC31005554E0ECA5D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 62A109171EC4165FD6DB72B936EB02CA /* Pods-KYPlayerView_Tests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-KYPlayerView_Tests/Pods-KYPlayerView_Tests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-KYPlayerView_Tests/Pods-KYPlayerView_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D7CDC5DA4DE778823734F3CECFAD751D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D351F84CEE9B4F9DA6C02B4540B7397F /* KYPlayerView.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KYPlayerView/KYPlayerView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KYPlayerView/KYPlayerView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/KYPlayerView/KYPlayerView.modulemap";
+				PRODUCT_MODULE_NAME = KYPlayerView;
+				PRODUCT_NAME = KYPlayerView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				25AD9454612BF454A1E3DC4CD4FA8C6D /* Debug */,
+				CA547D2C7E9A8A153DC2B27FBE00B112 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4FC4AFFE171568E4A23FBF9EF6AE0E4F /* Build configuration list for PBXNativeTarget "KYPlayerView-KYPlayerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BE7A321AB9FBB58504F9904B44C7B59 /* Debug */,
+				30D99297A3F21A0B4B755A98DABD89BA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		86CD8A0DB694CC1FE573A970E3F4ED1F /* Build configuration list for PBXNativeTarget "Pods-KYPlayerView_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBCDF968895F2A4AC31005554E0ECA5D /* Debug */,
+				2682B702FD1C4F5F3ECF8615E09E41AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CE9ECDBF88851BCC5B130B87939E90F /* Build configuration list for PBXNativeTarget "Pods-KYPlayerView_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				80B6D08E390746394817C44C3A1B9BD8 /* Debug */,
+				5E2CFA2BF1CB7FB057BB73FF509CC9D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9A1B9712DC5836184B680A161B47A8A /* Build configuration list for PBXNativeTarget "KYPlayerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				254A2B8364BF30045D1DA145FFA3A5E2 /* Debug */,
+				D7CDC5DA4DE778823734F3CECFAD751D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

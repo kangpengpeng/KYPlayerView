@@ -1,0 +1,16 @@
+PODS:
+  - KYPlayerView (0.1.0)
+
+DEPENDENCIES:
+  - KYPlayerView (from `../`)
+
+EXTERNAL SOURCES:
+  KYPlayerView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  KYPlayerView: 578ecca0f69ab71a107544816dd622cad73c50fa
+
+PODFILE CHECKSUM: 4daaaa0cbf6836b33854e71261e5558b96775294
+
+COCOAPODS: 1.11.0

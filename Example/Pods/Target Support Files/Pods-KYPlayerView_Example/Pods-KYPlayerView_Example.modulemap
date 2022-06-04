@@ -1,0 +1,6 @@
+framework module Pods_KYPlayerView_Example {
+  umbrella header "Pods-KYPlayerView_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}
