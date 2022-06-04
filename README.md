@@ -66,7 +66,7 @@ KYPlayerView is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'KYPlayerView'
+pod 'KYPlayerView', '~> 0.1.0'
 ```
 
 ## Author
